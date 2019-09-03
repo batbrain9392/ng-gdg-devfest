@@ -6,15 +6,26 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
   >
-    <mat-toolbar>Menu</mat-toolbar>
+    <div class="sidenav-header">
+      <img src="" alt="">
+      <div class="mat-headline">August 4th, 2019</div>
+      <div class="mat-subheading-2">Kolkata, India</div>
+    </div>
+    <mat-divider></mat-divider>
     <mat-nav-list (click)="drawer.close()">
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a
+        mat-list-item
+        *ngFor="let route of routes"
+        [routerLink]="route.path"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon mat-list-icon>{{ route.icon }}</mat-icon>
+        <span mat-line class="menu-item">{{ route.label }}</span>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="mat-elevation-z6">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -24,8 +35,18 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>GDG Kolkata</span>
+      <span class="custom-typography">GDG Kolkata</span>
       <span class="spacer"></span>
+      <ng-container *ngIf="!(isHandset$ | async)">
+        <button
+          mat-button
+          *ngFor="let route of routes"
+          [routerLink]="route.path"
+          routerLinkActive="router-link-active"
+        >
+          <span class="menu-item">{{ route.label }}</span>
+        </button>
+      </ng-container>
       <button
         mat-icon-button
         [matTooltip]="
@@ -39,6 +60,8 @@
         <mat-icon>brightness_{{ (isDarkTheme$ | async) ? 7 : 4 }}</mat-icon>
       </button>
     </mat-toolbar>
-    <ng-content select="router-outlet"></ng-content>
+    <main>
+      <ng-content select="router-outlet"></ng-content>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

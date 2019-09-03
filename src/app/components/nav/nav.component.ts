@@ -1,8 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { ThemeService } from 'src/app/services';
+import { IRoute } from 'src/app/models';
 
 @Component({
   selector: 'app-nav',
@@ -11,6 +12,7 @@ import { ThemeService } from 'src/app/services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavComponent {
+  @Input() routes: IRoute[];
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(

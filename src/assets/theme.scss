@@ -29,6 +29,12 @@ $custom-typography: mat-typography-config(
 // $button:        mat-typography-level(14px, 14px, 500),
 // $input:         mat-typography-level(16px, 1.125, 400) -> Line-height must be unit-less fraction of the font-size.
 
+.custom-typography {
+  font-family: mat-font-family(
+    mat-typography-config($font-family: $font-major)
+  );
+}
+
 //*********//
 // Theming //
 //*********//
@@ -41,6 +47,9 @@ $custom-accent: mat-palette($mat-pink, A200, A100, A400);
 $custom-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
 @include angular-material-theme($custom-theme);
+.mat-sidenav-container {
+  background-color: white;
+}
 
 // Dark theme
 $custom-dark-primary: mat-palette($mat-blue-grey);
