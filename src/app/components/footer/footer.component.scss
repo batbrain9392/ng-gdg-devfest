@@ -1,0 +1,45 @@
+$gap: 24px;
+
+:host {
+  margin: $gap 0;
+}
+
+:host,
+.container {
+  display: grid;
+  grid-gap: $gap;
+}
+
+h3 {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  align-items: center;
+}
+
+.col-3 {
+  display: grid;
+  grid-gap: $gap;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
+  & > div {
+    display: grid;
+  }
+}
+
+.credits {
+  display: grid;
+  grid-gap: $gap/2;
+  @media (min-width: 600px) {
+    grid-template-columns: auto max-content;
+    align-items: center;
+  }
+}

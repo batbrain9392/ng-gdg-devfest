@@ -61,7 +61,8 @@
       </button>
     </mat-toolbar>
     <main>
-      <ng-content select="router-outlet"></ng-content>
+      <div class="pages"><ng-content select="router-outlet"></ng-content></div>
+      <app-footer></app-footer>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
