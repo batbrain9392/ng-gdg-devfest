@@ -8,10 +8,11 @@ import {
 } from './pages';
 
 const routes: Routes = [
+  { path: 'home', component: HomeComponent },
   { path: 'schedule', component: ScheduleComponent },
   { path: 'speakers', component: SpeakersComponent },
   { path: 'team', component: TeamComponent },
-  { path: '', pathMatch: 'full', component: HomeComponent }
+  { path: '', pathMatch: 'full', redirectTo: '/home' }
 ];
 
 @NgModule({

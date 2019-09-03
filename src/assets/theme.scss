@@ -52,6 +52,12 @@ $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
 .mat-sidenav-container {
   background-color: white;
 }
+a {
+  color: #3f51b5;
+}
+.router-link-active {
+  background-color: #e0e0e0;
+}
 
 // Dark theme
 $custom-dark-primary: mat-palette($mat-blue-grey);
@@ -64,6 +70,12 @@ $custom-dark-theme: mat-dark-theme(
 );
 .dark-theme {
   @include angular-material-theme($custom-dark-theme);
+  a {
+    color: #64dd17;
+  }
+  .router-link-active {
+    background-color: #616161;
+  }
 }
 
 // Available color palettes: https://material.io/resources/color/

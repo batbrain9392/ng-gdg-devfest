@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   createRoutes() {
-    this.routes.push({ label: 'home', path: '/', icon: 'home' });
+    this.routes.push({ label: 'home', path: '/home', icon: 'home' });
     this.routes.push({ label: 'schedule', path: '/schedule', icon: 'event' });
     this.routes.push({ label: 'speakers', path: '/speakers', icon: 'mic' });
     this.routes.push({ label: 'team', path: '/team', icon: 'supervisor_account' });
