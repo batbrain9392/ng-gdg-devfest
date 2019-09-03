@@ -8,7 +8,7 @@
 
 .sidenav-header {
   padding: 22px;
-  [class^="mat-"] {
+  [class^='mat-'] {
     margin: 0;
   }
 }
@@ -27,9 +27,9 @@
 }
 
 main {
-  height: calc(100% - 56px);
+  min-height: calc(100% - 56px);
   @media (min-width: 600px) {
-    height: calc(100% - 64px);
+    min-height: calc(100% - 64px);
   }
   display: grid;
   grid-template-rows: auto max-content;
