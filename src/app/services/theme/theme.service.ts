@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private isDarkTheme = new BehaviorSubject(true);
+  private isDarkTheme = new BehaviorSubject(false);
   isDarkTheme$ = this.isDarkTheme.asObservable();
 
   toggleDarkTheme() {

@@ -28,8 +28,11 @@
       <span class="spacer"></span>
       <button
         mat-icon-button
+        [matTooltip]="
+          ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
+        "
         [attr.aria-label]="
-          (isDarkTheme$ | async) ? 'Light' : 'Dark' + ' theme button'
+          ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
         "
         (click)="toggleDarkTheme()"
       >
