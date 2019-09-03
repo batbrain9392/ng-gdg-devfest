@@ -29,7 +29,7 @@
       <div class="container">
         <button
           type="button"
-          aria-label="Toggle sidenav"
+          matTooltip="Toggle sidenav"
           mat-icon-button
           (click)="drawer.toggle()"
           *ngIf="isHandset$ | async"
@@ -53,13 +53,17 @@
           [matTooltip]="
             ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
           "
-          [attr.aria-label]="
-            ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
-          "
           (click)="toggleDarkTheme()"
         >
           <mat-icon>brightness_{{ (isDarkTheme$ | async) ? 7 : 4 }}</mat-icon>
         </button>
+        <a href="https://github.com/batbrain9392/gdg-devfest-ng"
+          target="_blank" rel="noopener noreferrer"
+          mat-icon-button
+          matTooltip="Github repo for this app"
+        >
+          <mat-icon>whatshot</mat-icon>
+        </a>
       </div>
     </mat-toolbar>
     <main>
