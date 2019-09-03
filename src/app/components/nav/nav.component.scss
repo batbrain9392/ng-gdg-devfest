@@ -15,12 +15,11 @@
 
 .mat-toolbar {
   background: inherit;
-}
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  .container {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .menu-item {
@@ -37,4 +36,8 @@ main {
   grid-row-gap: 64px;
   padding-top: 40px;
   box-sizing: border-box;
+}
+
+.p-0 {
+  padding: 0;
 }

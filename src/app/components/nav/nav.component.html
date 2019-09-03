@@ -25,40 +25,42 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="mat-elevation-z6">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"
-      >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span class="custom-typography">GDG Kolkata</span>
-      <span class="spacer"></span>
-      <ng-container *ngIf="!(isHandset$ | async)">
+    <mat-toolbar class="mat-elevation-z6 p-0">
+      <div class="container">
         <button
-          mat-button
-          *ngFor="let route of routes"
-          [routerLink]="route.path"
-          routerLinkActive="router-link-active"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async"
         >
-          <span class="menu-item">{{ route.label }}</span>
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-      </ng-container>
-      <button
-        mat-icon-button
-        [matTooltip]="
-          ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
-        "
-        [attr.aria-label]="
-          ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
-        "
-        (click)="toggleDarkTheme()"
-      >
-        <mat-icon>brightness_{{ (isDarkTheme$ | async) ? 7 : 4 }}</mat-icon>
-      </button>
+        <span class="custom-typography">GDG Kolkata</span>
+        <span class="spacer"></span>
+        <ng-container *ngIf="!(isHandset$ | async)">
+          <button
+            mat-button
+            *ngFor="let route of routes"
+            [routerLink]="route.path"
+            routerLinkActive="router-link-active"
+          >
+            <span class="menu-item">{{ route.label }}</span>
+          </button>
+        </ng-container>
+        <button
+          mat-icon-button
+          [matTooltip]="
+            ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
+          "
+          [attr.aria-label]="
+            ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
+          "
+          (click)="toggleDarkTheme()"
+        >
+          <mat-icon>brightness_{{ (isDarkTheme$ | async) ? 7 : 4 }}</mat-icon>
+        </button>
+      </div>
     </mat-toolbar>
     <main>
       <div class="pages"><ng-content select="router-outlet"></ng-content></div>
