@@ -33,9 +33,7 @@ main {
   }
   display: grid;
   grid-template-rows: auto max-content;
-  $gap: 64px;
-  grid-row-gap: $gap;
-  padding-top: $gap;
+  grid-row-gap: 64px;
   box-sizing: border-box;
 }
 

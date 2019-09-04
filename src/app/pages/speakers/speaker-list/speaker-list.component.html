@@ -1,25 +1,27 @@
-<div class="container">
-  <section class="banner">
-    <div class="mat-headline header">
-      Some relevant caption
-    </div>
-    <div class="mat-subheading-2 m-0">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit ex,
-      quidem veniam animi unde voluptate voluptatibus soluta dicta, dolore aut
-      dignissimos praesentium labore, provident porro hic facilis eaque ratione
-      consequatur.
-      <br />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-      perspiciatis facilis error.
-    </div>
-  </section>
-  <section class="speakers">
-    <div class="mat-title m-0">Speakers</div>
-    <mat-divider></mat-divider>
-    <div class="speaker-grid">
-      <app-speaker-card
-        *ngFor="let speaker of speakers$ | async"
-      ></app-speaker-card>
-    </div>
-  </section>
+<div class="pad-top">
+  <div class="container">
+    <section class="banner">
+      <div class="mat-headline header">
+        Some relevant caption
+      </div>
+      <div class="mat-subheading-2 m-0">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit ex,
+        quidem veniam animi unde voluptate voluptatibus soluta dicta, dolore aut
+        dignissimos praesentium labore, provident porro hic facilis eaque ratione
+        consequatur.
+        <br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+        perspiciatis facilis error.
+      </div>
+    </section>
+    <section class="speakers">
+      <div class="mat-title m-0">Speakers</div>
+      <mat-divider></mat-divider>
+      <div class="speaker-grid">
+        <app-speaker-card
+          *ngFor="let speaker of speakers$ | async"
+        ></app-speaker-card>
+      </div>
+    </section>
+  </div>
 </div>

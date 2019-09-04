@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./img-round.component.scss']
 })
 export class ImgRoundComponent implements OnInit {
-  @Input() src: string;
+  @Input() src = 'https://via.placeholder.com/128';
 
   constructor() {}
 

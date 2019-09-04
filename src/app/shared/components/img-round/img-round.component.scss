@@ -7,9 +7,11 @@
   overflow: hidden;
   background-color: rgb(245, 245, 245);
   display: grid;
-  place-content: center;
 
   img {
     width: 100%;
+    align-self: center;
+    justify-self: center;
+    place-self: center;
   }
 }
