@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-row-gap: 56px;
+}
+
+.mat-headline {
+  margin-bottom: 12px;
+}
+
+.speakers {
+  mat-divider {
+    margin: 12px 0 32px;
+  }
+}
+
+.speaker-grid {
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+app-speaker-card {
+  cursor: pointer;
+}

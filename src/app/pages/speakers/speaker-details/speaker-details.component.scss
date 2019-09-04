@@ -1,0 +1,40 @@
+.container {
+  display: grid;
+  grid-row-gap: 32px;
+
+  @media (min-width: 600px) {
+    grid-template-columns: max-content auto;
+    grid-column-gap: 64px;
+  }
+}
+
+.dp {
+  text-align: center;
+}
+
+.img-container {
+  margin: auto;
+  $size: 200px;
+  height: $size;
+  width: $size;
+
+  @media (min-width: 600px) {
+    $size: 256px;
+    height: $size;
+    width: $size;
+  }
+}
+
+.mat-headline {
+  margin: 24px 0 12px;
+}
+
+.details {
+  p {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

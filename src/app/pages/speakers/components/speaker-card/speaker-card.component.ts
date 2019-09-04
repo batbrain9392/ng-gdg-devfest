@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-team',
-  templateUrl: './team.component.html',
-  styleUrls: ['./team.component.scss'],
+  selector: 'app-speaker-card',
+  templateUrl: './speaker-card.component.html',
+  styleUrls: ['./speaker-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TeamComponent implements OnInit {
+export class SpeakerCardComponent implements OnInit {
 
   constructor() { }
 

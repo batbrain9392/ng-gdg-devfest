@@ -1,0 +1,16 @@
+.body {
+  padding: 16px 24px 32px;
+  text-align: center;
+}
+
+.img-container {
+  $size: 128px;
+  height: $size;
+  width: $size;
+  margin: auto;
+}
+
+.mat-title {
+  margin: 16px 0 8px;
+}
+

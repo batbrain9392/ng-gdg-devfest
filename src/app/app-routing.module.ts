@@ -3,14 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   HomeComponent,
   ScheduleComponent,
-  SpeakersComponent,
+  SpeakerDetailsComponent,
+  SpeakerListComponent,
   TeamComponent
 } from './pages';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'schedule', component: ScheduleComponent },
-  { path: 'speakers', component: SpeakersComponent },
+  { path: 'speakers/:id', component: SpeakerDetailsComponent },
+  { path: 'speakers', component: SpeakerListComponent },
   { path: 'team', component: TeamComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' }
 ];

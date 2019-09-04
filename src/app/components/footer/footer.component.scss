@@ -39,6 +39,7 @@ h3 {
 .credits {
   display: grid;
   grid-gap: $gap/2;
+
   @media (min-width: 600px) {
     grid-template-columns: auto max-content;
     align-items: center;
