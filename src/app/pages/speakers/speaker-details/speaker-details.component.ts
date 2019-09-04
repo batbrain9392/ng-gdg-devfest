@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { WebShareService } from '../../../shared/services';
 
 @Component({
   selector: 'app-speaker-details',
@@ -7,18 +8,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpeakerDetailsComponent {
-  onShareClick() {
-    if (navigator && (navigator as any).share) {
-      (navigator as any)
-        .share({
-          title: 'Name Surname',
-          text: 'Name Surname | Speaker',
-          url: 'https://gdg-devfest-ng.herokuapp.com/speakers/id'
-        })
-        .then(() => console.log('Successful share'))
-        .catch((error: any) => console.log('Error sharing', error));
-    } else {
-      console.log('No share api');
-    }
+  constructor(private webShareService: WebShareService) {}
+
+  onShareClick(partner: any) {
+    this.webShareService.share({
+      title: 'Name Surname',
+      text: 'Name Surname | Speaker',
+      url: 'https://gdg-devfest-ng.herokuapp.com/speakers/id'
+    });
   }
 }

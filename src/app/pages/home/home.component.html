@@ -20,8 +20,8 @@
             for a day filled with amazing Tech talks and demos.
           </p>
           <p>
-            Unable to attend? The DevFest Sessions will be available on YouTube in
-            a few days. Make sure to sign up to receive event information and
+            Unable to attend? The DevFest Sessions will be available on YouTube
+            in a few days. Make sure to sign up to receive event information and
             updates. Take part in the conversation on Twitter by using the
             hashtags
             <span class="mat-body-strong">#DevFestKol</span> and
@@ -74,9 +74,9 @@
             DevFests are events where we come together to learn from each other.
           </p>
           <p>
-            The motive is to create a local ecosystem of Developers and give them
-            a platform to Interact and Network. We talk about various cutting-edge
-            technologies.
+            The motive is to create a local ecosystem of Developers and give
+            them a platform to Interact and Network. We talk about various
+            cutting-edge technologies.
           </p>
         </div>
       </div>
@@ -111,8 +111,8 @@
       <div class="mat-headline">
         Highlights
       </div>
-      DevFest Kolkata 2018 was the largest gathering of Google Developer Groups in
-      the Eastern region of India! Here's a showdown of the event. Find the
+      DevFest Kolkata 2018 was the largest gathering of Google Developer Groups
+      in the Eastern region of India! Here's a showdown of the event. Find the
       complete album
       <a
         href="https://photos.app.goo.gl/b6WCNuE7xQDt6BnA8"
@@ -136,14 +136,15 @@
         </div>
         <div>
           <p>
-            Share your experience at DevFest '18 and what you loved/ did not love
-            about the event.
+            Share your experience at DevFest '18 and what you loved/ did not
+            love about the event.
           </p>
           <p>
             We would be looking forward to hearing your DevFest Stories and how
-            that has shaped your actions, work, passion and maybe life in general.
-            Made some amazing friends at DevFest? Tell us about that. Use the
-            hashtags <span class="mat-body-strong">#DevFestKol</span> and
+            that has shaped your actions, work, passion and maybe life in
+            general. Made some amazing friends at DevFest? Tell us about that.
+            Use the hashtags
+            <span class="mat-body-strong">#DevFestKol</span> and
             <span class="mat-body-strong">#DevFest19</span>.
           </p>
           <a
@@ -189,8 +190,8 @@
         Partners
       </div>
       <p>
-        We thank our Partners for their support towards the community. If you want
-        to be showcased through DevFest Kolkata, click
+        We thank our Partners for their support towards the community. If you
+        want to be showcased through DevFest Kolkata, click
         <a
           href="https://forms.gle/z8ZivnfjFQYbX55T6"
           target="_blank"
@@ -200,10 +201,7 @@
         for Sponsorship details.
       </p>
       <div class="grid-small">
-        <mat-card *ngFor="let item of [0, 0, 0, 0, 0, 0, 0, 0]">
-          <!-- <mat-card-header>
-            <div mat-card-avatar class="partner-type"></div>
-          </mat-card-header> -->
+        <mat-card *ngFor="let partner of [0, 0, 0, 0, 0, 0, 0, 0]">
           <h3>Partner type</h3>
           <div mat-card-image class="partner-image">
             <img src="http://via.placeholder.com/100" alt="image" />
@@ -218,7 +216,11 @@
             >
               <mat-icon>public</mat-icon>
             </a>
-            <button mat-icon-button color="accent">
+            <button
+              mat-icon-button
+              color="accent"
+              (click)="onShareClick(partner)"
+            >
               <mat-icon>share</mat-icon>
             </button>
           </mat-card-actions>
