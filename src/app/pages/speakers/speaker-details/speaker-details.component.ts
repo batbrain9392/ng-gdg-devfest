@@ -12,7 +12,7 @@ export class SpeakerDetailsComponent {
       (navigator as any)
         .share({
           title: 'Name Surname',
-          text: 'Profession | Profession | Profession | Profession',
+          text: 'Name Surname | Speaker',
           url: 'https://gdg-devfest-ng.herokuapp.com/speakers/id'
         })
         .then(() => console.log('Successful share'))
