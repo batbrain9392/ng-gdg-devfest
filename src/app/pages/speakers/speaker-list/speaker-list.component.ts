@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ISpeaker } from '../../../shared/models';
 
 @Component({
   selector: 'app-speaker-list',
@@ -9,7 +8,7 @@ import { ISpeaker } from '../../../shared/models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpeakerListComponent implements OnInit {
-  speakers$: Observable<ISpeaker>;
+  speakers$: Observable<any>;
 
   constructor() {
     this.speakers$ = of([1, 1, 1, 1, 1, 1, 1, 1]);
