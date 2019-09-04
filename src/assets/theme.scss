@@ -52,7 +52,7 @@ $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
 .mat-sidenav-container {
   background-color: white;
 }
-a {
+a:not([class^="mat-"]) {
   color: #2962ff;
 }
 .router-link-active {
@@ -70,7 +70,7 @@ $custom-dark-theme: mat-dark-theme(
 );
 .dark-theme {
   @include angular-material-theme($custom-dark-theme);
-  a {
+  a:not([class^="mat-"]) {
     color: #76ff03;
   }
   .router-link-active {
