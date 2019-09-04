@@ -1,8 +1,8 @@
 {
-  "name": "gdg-devfest-ng",
-  "short_name": "gdg-devfest-ng",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Google Developers Group Devfest",
+  "short_name": "GDG Devfest",
+  "theme_color": "#2962ff",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
