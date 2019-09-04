@@ -10,7 +10,7 @@ import { WebShareService } from '../../../shared/services';
 export class SpeakerDetailsComponent {
   constructor(private webShareService: WebShareService) {}
 
-  onShareClick(partner: any) {
+  onShareClick() {
     this.webShareService.share({
       title: 'Name Surname',
       text: 'Name Surname | Speaker',
