@@ -2,8 +2,8 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { ThemeService } from 'src/app/services';
-import { IRoute } from 'src/app/models';
+import { ThemeService } from '../../services';
+import { IRoute } from '../../models';
 
 @Component({
   selector: 'app-nav',

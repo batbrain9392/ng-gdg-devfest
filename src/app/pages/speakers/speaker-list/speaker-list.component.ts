@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ISpeaker } from '../../../models';
+import { ISpeaker } from '../../../shared/models';
 
 @Component({
   selector: 'app-speaker-list',

@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './shared/material.module';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
-import { components } from './components';
+import { components } from './shared/components';
 import { pages } from './pages';
 
 @NgModule({

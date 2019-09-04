@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ThemeService } from './services';
-import { IRoute } from './models';
+import { ThemeService } from './shared/services';
+import { IRoute } from './shared/models';
 
 @Component({
   selector: 'app-root',
