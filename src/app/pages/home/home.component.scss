@@ -2,12 +2,12 @@ $gap: 64px;
 
 .container {
   display: grid;
-  grid-row-gap: $gap;
+  grid-row-gap: 64px;
 }
 
 .grid {
   display: grid;
-  grid-gap: $gap;
+  grid-gap: 80px;
 
   @media (min-width: 600px) {
     grid-template-columns: 1fr 1fr;
@@ -56,4 +56,32 @@ $gap: 64px;
     width: 100%;
     height: 100%;
   }
+}
+
+.square-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 48px;
+}
+
+.topic {
+  width: max-content;
+  padding: 7px 21px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.yellow {
+  background-color: rgba(255, 217, 0, 0.4);
+}
+.blue {
+  background-color: rgba(107, 166, 255, 0.4);
+}
+.red {
+  background-color: rgba(255, 91, 91, 0.4);
+}
+.green {
+  background-color: rgba(21, 255, 0, 0.4);
 }
