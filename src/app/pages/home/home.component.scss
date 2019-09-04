@@ -7,10 +7,34 @@ $gap: 64px;
 
 .grid {
   display: grid;
+  grid-gap: $gap;
+
   @media (min-width: 600px) {
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'textArea imageArea';
+
+    & > div {
+      &:first-child {
+        grid-area: textArea;
+      }
+
+      &:last-child {
+        grid-area: imageArea;
+      }
+    }
+
+    &.grid-reverse {
+      & > div {
+        &:first-child {
+          grid-area: imageArea;
+        }
+
+        &:last-child {
+          grid-area: textArea;
+        }
+      }
+    }
   }
-  grid-gap: $gap;
 }
 
 .youtube-container {
