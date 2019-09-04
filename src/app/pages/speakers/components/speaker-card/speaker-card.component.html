@@ -1,5 +1,5 @@
 <mat-card matripple>
-  <div class="body">
+  <mat-card-content class="body">
     <div class="img-container">
       <app-img-round src="assets/img/people/person.jpg"></app-img-round>
     </div>
@@ -9,5 +9,8 @@
       Profession secondary <br />
       Hobby
     </div>
-  </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <a mat-button color="primary" routerLink="id">VIEW</a>
+  </mat-card-actions>
 </mat-card>
