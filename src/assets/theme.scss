@@ -60,7 +60,7 @@ a {
 }
 
 // Dark theme
-$custom-dark-primary: mat-palette($mat-blue-grey);
+$custom-dark-primary: mat-palette($mat-light-green, A400, A100, 700);
 $custom-dark-accent: mat-palette($mat-amber, A200, A100, A400);
 $custom-dark-warn: mat-palette($mat-deep-orange);
 $custom-dark-theme: mat-dark-theme(
@@ -71,7 +71,7 @@ $custom-dark-theme: mat-dark-theme(
 .dark-theme {
   @include angular-material-theme($custom-dark-theme);
   a {
-    color: #64dd17;
+    color: #76ff03;
   }
   .router-link-active {
     background-color: #616161;

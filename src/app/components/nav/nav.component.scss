@@ -1,6 +1,6 @@
-.sidenav-container {
-  height: 100%;
-}
+// .sidenav-container {
+//   height: 100%;
+// }
 
 .sidenav {
   width: 250px;
@@ -27,10 +27,10 @@
 }
 
 main {
-  min-height: calc(100% - 56px);
-  @media (min-width: 600px) {
-    min-height: calc(100% - 64px);
-  }
+  // min-height: calc(100% - 56px);
+  // @media (min-width: 600px) {
+  //   min-height: calc(100% - 64px);
+  // }
   display: grid;
   grid-template-rows: auto max-content;
   grid-row-gap: 64px;
