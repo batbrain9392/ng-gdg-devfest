@@ -44,8 +44,8 @@ $custom-typography: mat-typography-config(
 // @include mat-core(); -> Without custom typography
 
 // Default theme
-$custom-primary: mat-palette($mat-indigo);
-$custom-accent: mat-palette($mat-pink, A200, A100, A400);
+$custom-primary: mat-palette($mat-indigo, A700, A100, 600);
+$custom-accent: mat-palette($mat-purple, 400, 200, 700);
 $custom-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
 @include angular-material-theme($custom-theme);
@@ -53,7 +53,7 @@ $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
   background-color: white;
 }
 a {
-  color: #3f51b5;
+  color: #2962ff;
 }
 .router-link-active {
   background-color: #e0e0e0;
