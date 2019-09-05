@@ -1,0 +1,15 @@
+:host {
+  text-align: center;
+}
+
+.img-container {
+  $size: 100px;
+  height: $size;
+  width: $size;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin: 0;
+}

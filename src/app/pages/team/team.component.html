@@ -19,23 +19,35 @@
       <h2 class="m-0">Organising Team</h2>
     </app-header-fragment>
     <mat-divider></mat-divider>
+    <div class="grid-team">
+      <app-member *ngFor="let member of [0,0,0,0]" [member]="member"></app-member>
+    </div>
   </section>
   <section class="team" id="partnerCommunitiesOrganizingTeam">
     <app-header-fragment fragment="partnerCommunitiesOrganizingTeam">
       <h2 class="m-0">Partner Communities Organizing Team</h2>
     </app-header-fragment>
     <mat-divider></mat-divider>
+    <div class="grid-team">
+      <app-member *ngFor="let member of [0,0,0,0]" [member]="member"></app-member>
+    </div>
   </section>
   <section class="team" id="volunteers">
     <app-header-fragment fragment="volunteers">
       <h2 class="m-0">Volunteers</h2>
     </app-header-fragment>
     <mat-divider></mat-divider>
+    <div class="grid-team">
+      <app-member-small *ngFor="let member of [0,0,0,0,0,0,0,0]" [member]="member"></app-member-small>
+    </div>
   </section>
   <section class="team" id="developers">
     <app-header-fragment fragment="developers">
       <h2 class="m-0">Devel❤️ers</h2>
     </app-header-fragment>
     <mat-divider></mat-divider>
+    <div class="grid-team">
+      <app-member-small *ngFor="let member of [0,0,0,0,0]" [member]="member"></app-member-small>
+    </div>
   </section>
 </div>
