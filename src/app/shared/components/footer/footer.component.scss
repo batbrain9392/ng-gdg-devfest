@@ -45,3 +45,12 @@ h3 {
     align-items: center;
   }
 }
+
+.email {
+  mat-icon {
+    vertical-align: sub;
+    font-size: 20px;
+    height: 20px;
+    width: 24px;
+  }
+}
