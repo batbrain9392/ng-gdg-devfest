@@ -1,14 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-img-round',
   templateUrl: './img-round.component.html',
   styleUrls: ['./img-round.component.scss']
 })
-export class ImgRoundComponent implements OnInit {
+export class ImgRoundComponent {
   @Input() src = 'https://via.placeholder.com/128';
-
-  constructor() {}
-
-  ngOnInit() {}
+  @Input() alt = 'headshot';
 }

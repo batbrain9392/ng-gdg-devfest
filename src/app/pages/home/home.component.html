@@ -1,12 +1,12 @@
-<section class="banner"></section>
+<section id="banner"></section>
 <mat-divider></mat-divider>
 <div class="pad-top">
   <div class="container">
-    <section class="gdg-intro grid">
+    <section id="gdgIntro" class="grid">
       <div>
-        <div class="mat-headline">
-          GDG Devfest Kolkata 2019
-        </div>
+        <app-header-fragment fragment="gdgIntro">
+          <h1>GDG Devfest Kolkata 2019</h1>
+        </app-header-fragment>
         <div>
           <p class="mat-body-strong">We are in the Endgame now!</p>
           <p>
@@ -30,23 +30,21 @@
           <button mat-raised-button color="primary">Register</button>
         </div>
       </div>
-      <div class="youtube-container">
-        <div>
-          <iframe
-            src="https://www.youtube.com/embed/jG2_TN-jfH4"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          >
-          </iframe>
-        </div>
-      </div>
+      <app-placeholder>
+        <iframe
+          src="https://www.youtube.com/embed/jG2_TN-jfH4"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </app-placeholder>
     </section>
-    <section class="gdg-desc grid grid-reverse">
+    <section id="gdgDesc" class="grid grid-reverse">
       <div>
-        <div class="mat-headline">
-          Unique & Engaging
-        </div>
+        <app-header-fragment fragment="gdgDesc">
+          <h1>Unique & Engaging</h1>
+        </app-header-fragment>
         <div>
           <p>
             While no two DevFests will be exactly alike, each at its core is
@@ -60,15 +58,15 @@
           <button mat-raised-button color="accent">Call for showcase</button>
         </div>
       </div>
-      <div class="image">
+      <app-placeholder>
         <img src="http://via.placeholder.com/600x300" alt="image" />
-      </div>
+      </app-placeholder>
     </section>
-    <section class="events grid">
+    <section id="events" class="grid">
       <div>
-        <div class="mat-headline">
-          What happens at DevFest?
-        </div>
+        <app-header-fragment fragment="events">
+          <h1>What happens at DevFest?</h1>
+        </app-header-fragment>
         <div>
           <p>
             DevFests are events where we come together to learn from each other.
@@ -107,7 +105,7 @@
         </div>
       </div>
     </section>
-    <section class="highlights">
+    <section id="highlights" class="">
       <div class="mat-headline">
         Highlights
       </div>
@@ -121,19 +119,19 @@
         >here</a
       >.
       <div class="grid">
-        <div class="image">
+        <app-placeholder>
           <img src="http://via.placeholder.com/600x300" alt="image" />
-        </div>
-        <div class="image">
+        </app-placeholder>
+        <app-placeholder>
           <img src="http://via.placeholder.com/600x300" alt="image" />
-        </div>
+        </app-placeholder>
       </div>
     </section>
-    <section class="story grid grid-reverse">
+    <section id="story" class="grid grid-reverse">
       <div>
-        <div class="mat-headline">
-          Share your Story
-        </div>
+        <app-header-fragment fragment="story">
+          <h1>Share your Story</h1>
+        </app-header-fragment>
         <div>
           <p>
             Share your experience at DevFest '18 and what you loved/ did not
@@ -158,15 +156,15 @@
           >
         </div>
       </div>
-      <div class="image">
+      <app-placeholder>
         <img src="http://via.placeholder.com/600x300" alt="image" />
-      </div>
+      </app-placeholder>
     </section>
-    <section class="team grid">
+    <section id="team" class="grid">
       <div>
-        <div class="mat-headline">
-          The Team
-        </div>
+        <app-header-fragment fragment="team">
+          <h1>The Team</h1>
+        </app-header-fragment>
         <div>
           <p>
             These are the amazing bunch of people who make the event what it is.
@@ -181,14 +179,14 @@
           >
         </div>
       </div>
-      <div class="image">
+      <app-placeholder>
         <img src="http://via.placeholder.com/600x300" alt="image" />
-      </div>
+      </app-placeholder>
     </section>
-    <section class="partners">
-      <div class="mat-headline">
-        Partners
-      </div>
+    <section id="partners" class="partners">
+      <app-header-fragment fragment="partners">
+        <h1>Partners</h1>
+      </app-header-fragment>
       <p>
         We thank our Partners for their support towards the community. If you
         want to be showcased through DevFest Kolkata, click
@@ -201,7 +199,7 @@
         for Sponsorship details.
       </p>
       <div class="grid-small">
-        <mat-card *ngFor="let partner of [0, 0, 0, 0, 0, 0, 0, 0]">
+        <mat-card *ngFor="let partner of [0, 0, 0, 0, 0, 0, 0]">
           <h3>Partner type</h3>
           <div mat-card-image class="partner-image">
             <img src="http://via.placeholder.com/100" alt="image" />
@@ -216,20 +214,17 @@
             >
               <mat-icon>public</mat-icon>
             </a>
-            <button
-              mat-icon-button
-              (click)="onShareClick(partner)"
-            >
+            <button mat-icon-button (click)="onShareClick(partner)">
               <mat-icon>share</mat-icon>
             </button>
           </mat-card-actions>
         </mat-card>
       </div>
     </section>
-    <section class="location">
-      <div class="mat-headline">
-        Location
-      </div>
+    <section id="location" class="">
+      <app-header-fragment fragment="location">
+        <h1>Location</h1>
+      </app-header-fragment>
       <p>
         DevFest Kolkata 2019 shall take place at Novotel Kolkata, at CF Block,
         Action Area IC, Newtown.
