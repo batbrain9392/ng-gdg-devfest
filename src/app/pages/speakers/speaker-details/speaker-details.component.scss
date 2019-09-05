@@ -1,15 +1,23 @@
 .container {
   display: grid;
-  grid-row-gap: 32px;
+  $gap: 32px;
+  grid-gap: $gap;
+  margin-top: $gap / 2;
 
   @media (min-width: 600px) {
     grid-template-columns: max-content auto;
-    grid-column-gap: 64px;
+    $gap: 64px;
+    grid-gap: $gap;
+    margin-top: $gap;
   }
 }
 
 .dp {
   text-align: center;
+
+  mat-card {
+    padding: 32px;
+  }
 }
 
 .img-container {

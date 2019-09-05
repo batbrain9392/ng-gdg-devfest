@@ -2,8 +2,7 @@
 // Light Theme //
 //*************//
 
-.app-toolbar,
-app-footer {
+.white {
   background-color: white !important;
 }
 
@@ -12,7 +11,7 @@ a:not([class^='mat-']):not([class='fragment-icon']) {
 }
 
 .router-link-active {
-  background-color: #e0e0e0;
+  background-color: #d8d8d8;
 }
 
 //************//
@@ -20,9 +19,8 @@ a:not([class^='mat-']):not([class='fragment-icon']) {
 //************//
 
 .dark-theme {
-  .app-toolbar,
-  app-footer {
-    background-color: inherit !important;
+  .white {
+    background: #424242 !important;
   }
 
   a:not([class^='mat-']):not([class='fragment-icon']) {
@@ -30,6 +28,6 @@ a:not([class^='mat-']):not([class='fragment-icon']) {
   }
 
   .router-link-active {
-    background-color: #616161;
+    background-color: #707070;
   }
 }
