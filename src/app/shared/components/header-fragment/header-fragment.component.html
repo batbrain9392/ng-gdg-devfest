@@ -1,6 +1,11 @@
 <div class="link-on-hover">
   <header><ng-content></ng-content></header>
-  <a routerLink="./" [fragment]="fragment" class="fragment-icon">
+  <a
+    routerLink="./"
+    [fragment]="fragment"
+    class="fragment-icon"
+    matTooltip="Link to this section"
+  >
     <mat-icon>link</mat-icon>
   </a>
 </div>
