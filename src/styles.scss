@@ -36,7 +36,7 @@ a:not([class^='mat-']):not([class="fragment-icon"]) {
   }
 }
 
-a[class="fragment-icon"] {
+a[class*="fragment-icon"] {
   color: inherit;
   text-decoration: none;
   display: none;
