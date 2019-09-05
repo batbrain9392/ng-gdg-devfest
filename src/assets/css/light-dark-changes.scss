@@ -1,0 +1,35 @@
+//*************//
+// Light Theme //
+//*************//
+
+.app-toolbar,
+app-footer {
+  background-color: white !important;
+}
+
+a:not([class^='mat-']):not([class='fragment-icon']) {
+  color: #2962ff;
+}
+
+.router-link-active {
+  background-color: #e0e0e0;
+}
+
+//************//
+// Dark Theme //
+//************//
+
+.dark-theme {
+  .app-toolbar,
+  app-footer {
+    background-color: inherit !important;
+  }
+
+  a:not([class^='mat-']):not([class='fragment-icon']) {
+    color: #76ff03;
+  }
+
+  .router-link-active {
+    background-color: #616161;
+  }
+}

@@ -49,15 +49,6 @@ $custom-accent: mat-palette($mat-purple, 400, 200, 700);
 $custom-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
 @include angular-material-theme($custom-theme);
-.mat-sidenav-container {
-  background-color: white;
-}
-a:not([class^='mat-']):not([class="fragment-icon"]) {
-  color: #2962ff;
-}
-.router-link-active {
-  background-color: #e0e0e0;
-}
 
 // Dark theme
 $custom-dark-primary: mat-palette($mat-light-green, A400, A100, 700);
@@ -70,12 +61,6 @@ $custom-dark-theme: mat-dark-theme(
 );
 .dark-theme {
   @include angular-material-theme($custom-dark-theme);
-  a:not([class^='mat-']):not([class="fragment-icon"]) {
-    color: #76ff03;
-  }
-  .router-link-active {
-    background-color: #616161;
-  }
 }
 
 // Available color palettes: https://material.io/resources/color/
