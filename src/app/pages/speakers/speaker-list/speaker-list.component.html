@@ -13,8 +13,10 @@
   </ng-container>
 </app-jumbotron>
 <div class="container">
-  <section class="speakers">
-    <div class="mat-title m-0">Speakers</div>
+  <section class="speakers" id="speakers">
+    <app-header-fragment fragment="speakers">
+      <h2 class="m-0">Speakers</h2>
+    </app-header-fragment>
     <mat-divider></mat-divider>
     <div class="speaker-grid">
       <app-speaker-card
