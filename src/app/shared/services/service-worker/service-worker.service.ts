@@ -2,7 +2,7 @@ import { ApplicationRef, Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { MatSnackBar } from '@angular/material';
 import { interval, concat } from 'rxjs';
-import { first, tap, switchMap, map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -34,20 +34,12 @@ export class ServiceWorkerService {
   }
 
   setUpdateSubscriptions() {
-    this.swUpdate.available
-      .pipe(
-        tap(data => console.log('Update available', data)),
-        switchMap(_ =>
-          this.matSnackBar
-            .open('New version available!', 'UPDATE APP')
-            .onAction()
-        )
-      )
-      .subscribe(() => this.updateApp());
-    this.swUpdate.activated.subscribe(data => {
-      console.log('Updated', data);
-      this.matSnackBar.open('App updated to the latest version.');
-    });
+    this.swUpdate.available.subscribe(_ =>
+      this.matSnackBar.open('New app available! Update from top bar.')
+    );
+    this.swUpdate.activated.subscribe(_ =>
+      this.matSnackBar.open('App updated to the latest version.')
+    );
   }
 
   async updateApp() {

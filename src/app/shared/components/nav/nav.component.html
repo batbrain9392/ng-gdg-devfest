@@ -51,15 +51,15 @@
             <span>{{ route.label }}</span>
           </button>
         </ng-container>
-        <button
+        <a
+          href="https://github.com/batbrain9392/gdg-devfest-ng"
+          target="_blank"
+          rel="noopener noreferrer"
           mat-icon-button
-          color="accent"
-          matTooltip="Update app"
-          (click)="updateApp()"
-          *ngIf="updateAvailable$ | async"
+          matTooltip="Github repo for this app"
         >
-          <mat-icon>cloud_download</mat-icon>
-        </button>
+          <mat-icon>whatshot</mat-icon>
+        </a>
         <button
           mat-icon-button
           [matTooltip]="
@@ -71,15 +71,19 @@
             (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay'
           }}</mat-icon>
         </button>
-        <a
-          href="https://github.com/batbrain9392/gdg-devfest-ng"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
           mat-icon-button
-          matTooltip="Github repo for this app"
+          matTooltip="Update app"
+          (click)="updateApp()"
+          *ngIf="updateAvailable$ | async"
         >
-          <mat-icon>whatshot</mat-icon>
-        </a>
+          <mat-icon
+            matBadge="1"
+            matBadgeColor="warn"
+            matBadgePosition="above after"
+            >cloud_download</mat-icon
+          >
+        </button>
       </div>
     </mat-toolbar>
     <main>

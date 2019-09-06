@@ -9,7 +9,8 @@ import {
   MatTooltipModule,
   MatCardModule,
   MatSnackBarModule,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+  MatBadgeModule
 } from '@angular/material';
 
 @NgModule({
@@ -22,10 +23,11 @@ import {
     MatListModule,
     MatTooltipModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBadgeModule
   ],
   providers: [
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } }
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3500 } }
   ]
 })
 export class MaterialModule {}
