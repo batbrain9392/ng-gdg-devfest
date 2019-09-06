@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ThemeService } from './shared/services';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { ThemeService, ServiceWorkerService } from './shared/services';
 import { IRoute } from './shared/models';
 
 @Component({
@@ -8,18 +8,25 @@ import { IRoute } from './shared/models';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isDarkTheme$ = this.themeService.isDarkTheme$;
   routes: IRoute[] = [];
 
-  constructor(private themeService: ThemeService) {
+  constructor(
+    private themeService: ThemeService,
+    private serviceWorkerService: ServiceWorkerService
+  ) {}
+
+  ngOnInit() {
     this.createRoutes();
   }
 
   createRoutes() {
-    this.routes.push({ label: 'HOME', path: '/home', icon: 'home' });
-    this.routes.push({ label: 'SCHEDULE', path: '/schedule', icon: 'event' });
-    this.routes.push({ label: 'SPEAKERS', path: '/speakers', icon: 'mic' });
-    this.routes.push({ label: 'TEAM', path: '/team', icon: 'supervisor_account' });
+    this.routes = [
+      { label: 'HOME', path: '/home', icon: 'home' },
+      { label: 'SCHEDULE', path: '/schedule', icon: 'event' },
+      { label: 'SPEAKERS', path: '/speakers', icon: 'mic' },
+      { label: 'TEAM', path: '/team', icon: 'supervisor_account' }
+    ];
   }
 }
