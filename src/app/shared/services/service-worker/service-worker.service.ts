@@ -1,20 +1,57 @@
-import { Injectable } from '@angular/core';
-import { SwUpdate, SwPush } from '@angular/service-worker';
+import { ApplicationRef, Injectable } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
 import { MatSnackBar } from '@angular/material';
+import { interval, concat } from 'rxjs';
+import { first, tap, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceWorkerService {
-  constructor(swUpdate: SwUpdate, swPush: SwPush, matSnackBar: MatSnackBar) {
-    swUpdate.available.subscribe(async x => {
-      console.log(x);
-      await matSnackBar
-        .open('New version available!', 'UPDATE APP')
-        .onAction()
-        .toPromise();
-      await swUpdate.activateUpdate();
-      matSnackBar.open('App updated to the latest version.');
+  updateAvailable$ = this.swUpdate.available;
+
+  constructor(
+    private applicationRef: ApplicationRef,
+    private swUpdate: SwUpdate,
+    private matSnackBar: MatSnackBar
+  ) {}
+
+  watchForUpdates() {
+    if (this.swUpdate.isEnabled) {
+      const appIsStable$ = this.applicationRef.isStable.pipe(
+        first(isStable => isStable === true)
+      );
+      const everySixHours$ = interval(6 * 60 * 60 * 1000);
+      const everySixHoursOnceAppIsStable$ = concat(
+        appIsStable$,
+        everySixHours$
+      );
+      everySixHoursOnceAppIsStable$.subscribe(() =>
+        this.swUpdate.checkForUpdate()
+      );
+      this.setUpdateSubscriptions();
+    }
+  }
+
+  setUpdateSubscriptions() {
+    this.swUpdate.available
+      .pipe(
+        tap(data => console.log('Update available', data)),
+        switchMap(_ =>
+          this.matSnackBar
+            .open('New version available!', 'UPDATE APP')
+            .onAction()
+        )
+      )
+      .subscribe(() => this.updateApp());
+    this.swUpdate.activated.subscribe(data => {
+      console.log('Updated', data);
+      this.matSnackBar.open('App updated to the latest version.');
     });
+  }
+
+  async updateApp() {
+    await this.swUpdate.activateUpdate();
+    document.location.reload();
   }
 }

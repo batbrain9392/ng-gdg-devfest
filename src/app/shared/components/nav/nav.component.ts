@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { ThemeService } from '../../services';
+import { ThemeService, ServiceWorkerService } from '../../services';
 import { IRoute } from '../../models';
 
 @Component({
@@ -20,13 +20,19 @@ export class NavComponent {
       shareReplay()
     );
   isDarkTheme$ = this.themeService.isDarkTheme$;
+  updateAvailable$ = this.serviceWorkerService.updateAvailable$;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private serviceWorkerService: ServiceWorkerService
   ) {}
 
   toggleDarkTheme() {
     this.themeService.toggleDarkTheme();
+  }
+
+  updateApp() {
+    this.serviceWorkerService.setUpdateSubscriptions();
   }
 }

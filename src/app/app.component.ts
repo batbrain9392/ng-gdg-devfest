@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.serviceWorkerService.watchForUpdates();
     this.createRoutes();
   }
 

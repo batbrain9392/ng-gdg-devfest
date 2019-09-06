@@ -71,6 +71,15 @@
         >
           <mat-icon>whatshot</mat-icon>
         </a>
+        <button
+          mat-icon-button
+          matTooltip="Update app"
+          (click)="updateApp()"
+          *ngIf="updateAvailable$ | async"
+        >
+          <mat-icon>cloud_download</mat-icon>
+        </button>
+        .{{ !!(updateAvailable$ | async) }}.
       </div>
     </mat-toolbar>
     <main>
