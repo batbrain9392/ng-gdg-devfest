@@ -41,7 +41,7 @@
         </button>
         <span class="custom-typography">GDG Kolkata</span>
         <span class="spacer"></span>
-        <ng-container *ngIf="!(isHandset$ | async)">
+        <ng-container *ngIf="(isHandset$ | async) === false">
           <button
             mat-button
             *ngFor="let route of routes"
