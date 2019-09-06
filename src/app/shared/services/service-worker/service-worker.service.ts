@@ -2,13 +2,13 @@ import { ApplicationRef, Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { MatSnackBar } from '@angular/material';
 import { interval, concat } from 'rxjs';
-import { first, tap, switchMap } from 'rxjs/operators';
+import { first, tap, switchMap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceWorkerService {
-  updateAvailable$ = this.swUpdate.available;
+  updateAvailable$ = this.swUpdate.available.pipe(map(value => !!value));
 
   constructor(
     private applicationRef: ApplicationRef,

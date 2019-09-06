@@ -53,6 +53,15 @@
         </ng-container>
         <button
           mat-icon-button
+          color="accent"
+          matTooltip="Update app"
+          (click)="updateApp()"
+          *ngIf="updateAvailable$ | async"
+        >
+          <mat-icon>cloud_download</mat-icon>
+        </button>
+        <button
+          mat-icon-button
           [matTooltip]="
             ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
           "
@@ -71,15 +80,6 @@
         >
           <mat-icon>whatshot</mat-icon>
         </a>
-        <button
-          mat-icon-button
-          matTooltip="Update app"
-          (click)="updateApp()"
-          *ngIf="updateAvailable$ | async"
-        >
-          <mat-icon>cloud_download</mat-icon>
-        </button>
-        .{{ !!(updateAvailable$ | async) }}.
       </div>
     </mat-toolbar>
     <main>
