@@ -13,10 +13,10 @@ import { IRoute } from '../../models';
 })
 export class NavComponent {
   @Input() routes: IRoute[];
-  isHandset$: Observable<boolean> = this.breakpointObserver
+  isNotHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map(result => !result.matches),
       shareReplay()
     );
   isDarkTheme$ = this.themeService.isDarkTheme$;
