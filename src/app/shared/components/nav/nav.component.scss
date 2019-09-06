@@ -25,10 +25,6 @@
   }
 }
 
-.menu-item {
-  text-transform: capitalize;
-}
-
 main {
   @mixin offset-top($gap) {
     min-height: calc(100vh - #{$gap});

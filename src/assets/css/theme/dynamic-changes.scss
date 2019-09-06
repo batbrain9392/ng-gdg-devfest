@@ -1,3 +1,5 @@
+@import './variables';
+
 //*************//
 // Light Theme //
 //*************//
@@ -7,11 +9,15 @@
 }
 
 a:not([class^='mat-']):not([class*='fragment-icon']) {
-  color: #2962ff;
+  color: $primary;
 }
 
 .router-link-active {
   background-color: #d8d8d8;
+}
+
+.app-toolbar .router-link-active {
+  background-color: $primary-dark;
 }
 
 //************//
@@ -24,10 +30,14 @@ a:not([class^='mat-']):not([class*='fragment-icon']) {
   }
 
   a:not([class^='mat-']):not([class*='fragment-icon']) {
-    color: #76ff03;
+    color: $accent;
   }
 
   .router-link-active {
     background-color: #707070;
   }
+
+  // .app-toolbar .router-link-active {
+  //   background-color: $accent-dark;
+  // }
 }

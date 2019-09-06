@@ -44,14 +44,14 @@ $custom-typography: mat-typography-config(
 // @include mat-core(); -> Without custom typography
 
 // Default theme
-$custom-primary: mat-palette($mat-indigo, A700, A100, 600);
-$custom-accent: mat-palette($mat-purple, 400, 200, 700);
+$custom-primary: mat-palette($mat-blue, 700, 500, 900);
+$custom-accent: mat-palette($mat-amber, A200, A100, A400);
 $custom-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-primary, $custom-accent, $custom-warn);
 @include angular-material-theme($custom-theme);
 
 // Dark theme
-$custom-dark-primary: mat-palette($mat-light-green, A400, A100, 700);
+$custom-dark-primary: mat-palette($mat-light-green, A700, A200, 600);
 $custom-dark-accent: mat-palette($mat-amber, A200, A100, A400);
 $custom-dark-warn: mat-palette($mat-deep-orange);
 $custom-dark-theme: mat-dark-theme(
@@ -65,4 +65,4 @@ $custom-dark-theme: mat-dark-theme(
 
 // Available color palettes: https://material.io/resources/color/
 
-@import './theme-changes';
+@import './dynamic-changes.scss';

@@ -3,8 +3,8 @@
     #drawer
     class="sidenav"
     fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    mode="over"
+    [opened]="(isHandset$ | async) ? false : false"
   >
     <div class="sidenav-header">
       <img src="" alt="" />
@@ -20,12 +20,15 @@
         routerLinkActive="router-link-active"
       >
         <mat-icon mat-list-icon>{{ route.icon }}</mat-icon>
-        <span mat-line class="menu-item">{{ route.label }}</span>
+        <span mat-line>{{ route.label }}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="app-toolbar white mat-elevation-z6 p-0">
+    <mat-toolbar
+      [color]="(isDarkTheme$ | async) ? null : 'primary'"
+      class="app-toolbar mat-elevation-z6 p-0"
+    >
       <div class="container">
         <button
           type="button"
@@ -45,7 +48,7 @@
             [routerLink]="route.path"
             routerLinkActive="router-link-active"
           >
-            <span class="menu-item">{{ route.label }}</span>
+            <span>{{ route.label }}</span>
           </button>
         </ng-container>
         <button
