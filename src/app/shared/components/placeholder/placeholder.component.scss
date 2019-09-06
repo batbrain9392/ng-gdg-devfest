@@ -1,5 +1,7 @@
 .placeholder {
   position: relative;
+  border-radius: 4px;
+  overflow: hidden;
 
   &:after {
     content: '';
