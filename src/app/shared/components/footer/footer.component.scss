@@ -17,15 +17,16 @@ h3 {
 
 .grid-col {
   display: grid;
-  grid-gap: $gap;
+  grid-column-gap: $gap;
+  grid-row-gap: $gap - 6;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 
-.col-2 {
+.follow {
   align-items: center;
 }
 
-.col-3 {
+.about {
   & > div {
     display: grid;
     align-content: start;
@@ -46,11 +47,9 @@ h3 {
   }
 }
 
-.email {
-  mat-icon {
-    vertical-align: sub;
-    font-size: 20px;
-    height: 20px;
-    width: 24px;
-  }
+.icon-with-text {
+  vertical-align: sub;
+  font-size: 20px;
+  height: 20px;
+  width: 24px;
 }
