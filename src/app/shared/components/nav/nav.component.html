@@ -7,7 +7,7 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
   >
     <div class="sidenav-header">
-      <img src="" alt="">
+      <img src="" alt="" />
       <div class="mat-headline">August 4th, 2019</div>
       <div class="mat-subheading-2">Kolkata, India</div>
     </div>
@@ -55,10 +55,14 @@
           "
           (click)="toggleDarkTheme()"
         >
-          <mat-icon>brightness_{{ (isDarkTheme$ | async) ? 7 : 4 }}</mat-icon>
+          <mat-icon>{{
+            (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay'
+          }}</mat-icon>
         </button>
-        <a href="https://github.com/batbrain9392/gdg-devfest-ng"
-          target="_blank" rel="noopener noreferrer"
+        <a
+          href="https://github.com/batbrain9392/gdg-devfest-ng"
+          target="_blank"
+          rel="noopener noreferrer"
           mat-icon-button
           matTooltip="Github repo for this app"
         >
