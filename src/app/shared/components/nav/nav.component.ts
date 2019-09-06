@@ -33,6 +33,6 @@ export class NavComponent {
   }
 
   updateApp() {
-    this.serviceWorkerService.setUpdateSubscriptions();
+    this.serviceWorkerService.updateApp();
   }
 }
