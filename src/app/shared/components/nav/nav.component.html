@@ -32,10 +32,10 @@
       <div class="container">
         <button
           type="button"
-          matTooltip="Toggle sidenav"
           mat-icon-button
           (click)="drawer.toggle()"
           *ngIf="isHandset$ | async"
+          matTooltip="Toggle menu"
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
@@ -58,14 +58,19 @@
           mat-icon-button
           matTooltip="Github repo for this app"
         >
-          <mat-icon svgIcon="github-circle"></mat-icon>
+          <mat-icon
+            class="app-default-color"
+            svgIcon="github-circle"
+          ></mat-icon>
         </a>
         <button
           mat-icon-button
-          [matTooltip]="
-            ((isDarkTheme$ | async) ? 'Light' : 'Dark') + ' theme button'
-          "
           (click)="toggleDarkTheme()"
+          [matTooltip]="
+            'Switch to ' +
+            ((isDarkTheme$ | async) ? 'light' : 'dark') +
+            ' theme'
+          "
         >
           <mat-icon>{{
             (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay'
@@ -73,9 +78,9 @@
         </button>
         <button
           mat-icon-button
-          matTooltip="Update app"
           (click)="updateApp()"
           *ngIf="updateAvailable$ | async"
+          matTooltip="Update app"
         >
           <mat-icon>system_update</mat-icon>
         </button>

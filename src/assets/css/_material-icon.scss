@@ -13,8 +13,10 @@ a.mat-menu-item > mat-icon {
     height: 24px;
     width: 24px;
   }
+}
 
-  &.original-color {
+app-nav:not([class*='dark-theme']) {
+  mat-icon:not([class*='app-default-color']) {
     &[svgIcon^='twitter'] {
       color: #00acee;
     }
