@@ -1,3 +1,5 @@
+@import './theme/variables';
+
 button.mat-menu-item {
   line-height: 24px !important;
 }
@@ -6,7 +8,35 @@ a.mat-menu-item > mat-icon {
   margin-bottom: 14px;
 }
 
-.mat-icon svg {
-  height: 24px;
-  width: 24px;
+.mat-icon {
+  svg {
+    height: 24px;
+    width: 24px;
+  }
+
+  &.original-color {
+    &[svgIcon^='twitter'] {
+      color: #00acee;
+    }
+
+    &[svgIcon^='facebook'] {
+      color: #3b5998;
+    }
+
+    &[svgIcon^='meetup'] {
+      color: #e51937;
+    }
+
+    &[svgIcon^='linkedin'] {
+      color: #0e76a8;
+    }
+
+    &[svgIcon^='github'] {
+      color: #333;
+    }
+
+    &[svgIcon^='web'] {
+      color: $primary;
+    }
+  }
 }
