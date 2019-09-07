@@ -12,7 +12,12 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
       <button mat-button [mat-dialog-close]="false">
         LATER
       </button>
-      <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="warn">
+      <button
+        mat-raised-button
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        color="primary"
+      >
         UPDATE
       </button>
     </div>
