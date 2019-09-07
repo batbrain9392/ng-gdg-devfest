@@ -6,17 +6,17 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     <div mat-dialog-content>
       Updating app might cause loss of unsaved data. Please save all data before
       proceeding.<br />
-      Continue with update?
+      Continue with the update?
     </div>
     <div mat-dialog-actions align="end">
-      <button mat-button [mat-dialog-close]="false">
+      <button mat-stroked-button [mat-dialog-close]="false">
         LATER
       </button>
       <button
         mat-raised-button
+        color="primary"
         [mat-dialog-close]="true"
         cdkFocusInitial
-        color="primary"
       >
         UPDATE
       </button>
