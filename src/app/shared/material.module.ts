@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { LayoutModule } from '@angular/cdk/layout';
 import {
   MatSidenavModule,
   MatToolbarModule,
   MatButtonModule,
   MatIconModule,
+  MatIconRegistry,
   MatListModule,
   MatTooltipModule,
   MatCardModule,
@@ -30,4 +32,10 @@ import {
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3500 } }
   ]
 })
-export class MaterialModule {}
+export class MaterialModule {
+  constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
+    matIconRegistry.addSvgIconSet(
+      domSanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/mdi.svg')
+    );
+  }
+}

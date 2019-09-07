@@ -26,7 +26,12 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              {
+                "glob": "mdi.svg",
+                "input": "./node_modules/@mdi/angular-material",
+                "output": "./assets/icons"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -151,6 +156,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "gdg-devfest-ng"
 }
