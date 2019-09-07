@@ -12,7 +12,7 @@ import {
   MatCardModule,
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
-  MatBadgeModule
+  MatDialogModule
 } from '@angular/material';
 
 @NgModule({
@@ -26,7 +26,7 @@ import {
     MatTooltipModule,
     MatCardModule,
     MatSnackBarModule,
-    MatBadgeModule
+    MatDialogModule
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3500 } }

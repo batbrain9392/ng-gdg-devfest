@@ -5,11 +5,16 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { HeaderFragmentComponent } from './header-fragment/header-fragment.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 
+import { dialogs } from './dialogs';
+
 export const components = [
   NavComponent,
   FooterComponent,
   ImgRoundComponent,
   PlaceholderComponent,
   HeaderFragmentComponent,
-  JumbotronComponent
+  JumbotronComponent,
+  ...dialogs
 ];
+
+export const entryComponents = [...dialogs];

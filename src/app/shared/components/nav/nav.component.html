@@ -72,9 +72,9 @@
             ' theme'
           "
         >
-          <mat-icon>{{
-            (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay'
-          }}</mat-icon>
+          <mat-icon>
+            {{ (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay' }}
+          </mat-icon>
         </button>
         <button
           mat-icon-button
@@ -87,7 +87,9 @@
       </div>
     </mat-toolbar>
     <main>
-      <div class="pages"><ng-content select="router-outlet"></ng-content></div>
+      <div class="pages">
+        <ng-content select="router-outlet"></ng-content>
+      </div>
       <app-footer class="white"></app-footer>
     </main>
   </mat-sidenav-content>

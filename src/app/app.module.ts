@@ -8,7 +8,7 @@ import { MaterialModule } from './shared/material.module';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
-import { components } from './shared/components';
+import { components, entryComponents } from './shared/components';
 import { pages } from './pages';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { pages } from './pages';
       enabled: environment.production
     })
   ],
-  providers: [],
+  entryComponents: [...entryComponents],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

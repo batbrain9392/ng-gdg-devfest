@@ -1,8 +1,9 @@
 import { ApplicationRef, Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { interval, concat } from 'rxjs';
 import { first, map } from 'rxjs/operators';
+import { UpdateAppComponent } from '../../components/dialogs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class ServiceWorkerService {
   constructor(
     private applicationRef: ApplicationRef,
     private swUpdate: SwUpdate,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   watchForUpdates() {
@@ -29,21 +31,20 @@ export class ServiceWorkerService {
       everySixHoursOnceAppIsStable$.subscribe(() =>
         this.swUpdate.checkForUpdate()
       );
-      this.setUpdateSubscriptions();
+      this.swUpdate.available.subscribe(_ =>
+        this.matSnackBar.open('New app available! Update from top bar.')
+      );
     }
   }
 
-  setUpdateSubscriptions() {
-    this.swUpdate.available.subscribe(_ =>
-      this.matSnackBar.open('New app available! Update from top bar.')
-    );
-    this.swUpdate.activated.subscribe(_ =>
-      this.matSnackBar.open('App updated to the latest version.')
-    );
-  }
-
-  async updateApp() {
-    await this.swUpdate.activateUpdate();
-    document.location.reload();
+  updateApp() {
+    this.dialog
+      .open(UpdateAppComponent)
+      .afterClosed()
+      .subscribe((isUpdate: boolean) => {
+        if (isUpdate) {
+          this.swUpdate.activateUpdate().then(() => document.location.reload());
+        }
+      });
   }
 }
