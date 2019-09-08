@@ -2,8 +2,13 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { ThemeService, ServiceWorkerService } from '../../services';
+import {
+  ThemeService,
+  ServiceWorkerService,
+  WebShareService
+} from '../../services';
 import { IRoute } from '../../models';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-nav',
@@ -25,8 +30,18 @@ export class NavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private themeService: ThemeService,
-    private serviceWorkerService: ServiceWorkerService
+    private serviceWorkerService: ServiceWorkerService,
+    private webShareService: WebShareService,
+    private titleService: Title
   ) {}
+
+  onShareClick() {
+    this.webShareService.share({
+      title: this.titleService.getTitle(),
+      text: 'GDG Devfest official PWA template',
+      url: window.location.origin
+    });
+  }
 
   toggleDarkTheme() {
     this.themeService.toggleDarkTheme();

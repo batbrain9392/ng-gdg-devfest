@@ -41,10 +41,16 @@ h3 {
   display: grid;
   grid-gap: $gap/2;
 
-  @media (min-width: 600px) {
+  @media (min-width: 584px) {
     grid-template-columns: auto max-content;
     align-items: center;
   }
+}
+
+.links {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 7px;
 }
 
 .icon-with-text {
@@ -52,4 +58,12 @@ h3 {
   font-size: 20px;
   height: 20px;
   width: 24px;
+}
+
+.small-icon-with-text {
+  $size: 18px;
+  height: $size;
+  width: $size;
+  vertical-align: sub;
+  margin-right: 2px;
 }

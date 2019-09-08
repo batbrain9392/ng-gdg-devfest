@@ -12,11 +12,16 @@ a.mat-menu-item > mat-icon {
   margin-bottom: 14px;
 }
 
-.mat-icon {
-  svg {
-    height: 24px;
-    width: 24px;
-  }
+.mat-icon svg {
+  $size: 24px;
+  height: $size;
+  width: $size;
+}
+
+.small-icon-with-text svg {
+  $size: 18px;
+  height: $size;
+  width: $size;
 }
 
 app-nav:not([class*='dark-theme']) {

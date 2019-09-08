@@ -51,18 +51,9 @@
             <span>{{ route.label }}</span>
           </button>
         </ng-container>
-        <a
-          href="https://github.com/batbrain9392/gdg-devfest-ng"
-          target="_blank"
-          rel="noopener noreferrer"
-          mat-icon-button
-          matTooltip="Github repo for this app"
-        >
-          <mat-icon
-            class="app-default-color"
-            svgIcon="github-circle"
-          ></mat-icon>
-        </a>
+        <button mat-icon-button (click)="onShareClick()" matTooltip="Share app">
+          <mat-icon>share</mat-icon>
+        </button>
         <button
           mat-icon-button
           (click)="toggleDarkTheme()"
