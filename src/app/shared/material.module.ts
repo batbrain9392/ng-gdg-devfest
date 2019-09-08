@@ -35,7 +35,7 @@ import {
 export class MaterialModule {
   constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
     matIconRegistry.addSvgIconSet(
-      domSanitizer.bypassSecurityTrustResourceUrl('../../assets/icons/mdi.svg')
+      domSanitizer.bypassSecurityTrustResourceUrl('assets/fonts/mdi.svg')
     );
   }
 }
