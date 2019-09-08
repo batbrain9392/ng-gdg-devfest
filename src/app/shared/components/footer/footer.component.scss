@@ -51,6 +51,7 @@ h3 {
   display: grid;
   grid-auto-flow: column;
   grid-column-gap: 7px;
+  justify-content: start;
 }
 
 .icon-with-text {
