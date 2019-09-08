@@ -12,7 +12,8 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run gdg-devfest-ng:server:production --bundleDependencies all",
-    "deploy": "ng build --prod && firebase deploy"
+    "build:prod": "ng build --prod",
+    "deploy": "firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
