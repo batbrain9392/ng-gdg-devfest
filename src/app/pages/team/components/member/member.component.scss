@@ -1,15 +1,19 @@
 :host {
-  text-align: center;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-gap: 15px;
 }
 
 .img-container {
   $size: 100px;
   height: $size;
   width: $size;
-  margin: auto;
-  margin-bottom: 15px;
 }
 
-h3 {
-  margin: 0;
+@media (min-width: 508px) {
+  :host {
+    grid-template-columns: none;
+    justify-items: center;
+    text-align: center;
+  }
 }

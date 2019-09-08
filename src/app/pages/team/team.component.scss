@@ -10,6 +10,15 @@
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  grid-row-gap: 64px;
+  grid-row-gap: 40px;
   grid-column-gap: 12px;
+  padding: 0 16px;
+
+  @media (min-width: 508px) {
+    padding: 0;
+  }
+
+  &.grid-small {
+    grid-row-gap: 24px;
+  }
 }
