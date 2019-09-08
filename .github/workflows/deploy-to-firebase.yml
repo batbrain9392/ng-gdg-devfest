@@ -1,0 +1,17 @@
+name: CI
+
+on: 
+  push:
+  - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Clean install dependencies and deploy to firebase
+      run: |
+        npm ci
+        npm run deploy
