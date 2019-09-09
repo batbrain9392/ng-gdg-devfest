@@ -47,9 +47,7 @@ export class ServiceWorkerService {
         if (isUpdate) {
           this.swUpdate.activateUpdate().then(() =>
             this.matSnackBar
-              .open('App updated. Reloading in 3 seconds.', 'RELOAD NOW', {
-                duration: 3000
-              })
+              .open('App updated. Reloading...')
               .afterDismissed()
               .subscribe(_ => document.location.reload())
           );
