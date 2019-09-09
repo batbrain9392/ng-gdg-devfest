@@ -18,7 +18,7 @@ export class WebShareService {
   );
 
   share({ title, text, url }: IWebShare) {
-    this.webShare.subscribe(share => {
+    const sub = this.webShare.subscribe(share => {
       if (share) {
         share({ title, text, url })
           .then(() => console.log('Successful share'))
@@ -26,6 +26,7 @@ export class WebShareService {
       } else {
         this.apiAvailabilityLog(!!share);
       }
+      sub.unsubscribe();
     });
   }
 
