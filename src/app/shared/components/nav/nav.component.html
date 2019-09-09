@@ -75,7 +75,7 @@
           mat-icon-button
           (click)="updateApp()"
           matTooltip="Update app"
-          *ngIf="(isUpdateAvailable$ | async) || !(isUpdating$ | async)"
+          *ngIf="(isUpdateAvailable$ | async) && !(isUpdating$ | async)"
         >
           <mat-icon class="animated infinite heartBeat delay-3s slower">
             system_update
