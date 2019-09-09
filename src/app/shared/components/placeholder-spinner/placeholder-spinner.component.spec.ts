@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LocationComponent } from './location.component';
+import { PlaceholderSpinnerComponent } from './placeholder-spinner.component';
 
-describe('LocationComponent', () => {
-  let component: LocationComponent;
-  let fixture: ComponentFixture<LocationComponent>;
+describe('PlaceholderSpinnerComponent', () => {
+  let component: PlaceholderSpinnerComponent;
+  let fixture: ComponentFixture<PlaceholderSpinnerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocationComponent ]
+      declarations: [ PlaceholderSpinnerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LocationComponent);
+    fixture = TestBed.createComponent(PlaceholderSpinnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

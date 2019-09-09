@@ -1,5 +1,4 @@
-<section id="banner" class="white"></section>
-<mat-divider></mat-divider>
+<app-map [url]="mapUrl"></app-map>
 <div class="master-grid">
   <section id="eventIntroduction">
     <div class="container grid">
@@ -232,32 +231,6 @@
           </mat-card-actions>
         </mat-card>
       </div>
-    </div>
-  </section>
-  <section id="location">
-    <div class="container">
-      <app-header-fragment fragment="location">
-        <h1>Location</h1>
-      </app-header-fragment>
-      <p>
-        DevFest Kolkata 2019 shall take place at Novotel Kolkata, at CF Block,
-        Action Area IC, Newtown.
-      </p>
-      <a
-        mat-stroked-button
-        color="primary"
-        href="http://novotelkolkata.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LEARN MORE
-      </a>
-      <iframe
-        class="map mat-elevation-z2"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.982636307229!2d88.45897461534894!3d22.579752738397637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02753d09d3d733%3A0xb81242f6fef0e357!2sNovotel%20Kolkata%20Hotel%20And%20Residences!5e0!3m2!1sen!2ssg!4v1567781531693!5m2!1sen!2ssg"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
     </div>
   </section>
 </div>
