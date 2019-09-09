@@ -18,7 +18,7 @@ export class WebShareService {
   );
 
   share({ title, text, url }: IWebShare) {
-    const share = this.webShare.value;
+    const share = this.webShare.getValue();
     if (share) {
       share({ title, text, url })
         .then(() => console.log('Successful share'))
