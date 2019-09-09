@@ -1,1 +1,25 @@
-<p>team-introduction works!</p>
+<section>
+  <div class="container grid">
+    <div>
+      <app-header-fragment fragment="teamIntroduction">
+        <h1>The Team</h1>
+      </app-header-fragment>
+      <div>
+        <p>
+          These are the amazing bunch of people who make the event what it is.
+          Who toil day and night to bring to you DevFest Kolkata 🌓
+        </p>
+        <p>
+          They take the time out from their daily grind to give back to the
+          Community. And in the process, empowering us all.
+        </p>
+        <a mat-stroked-button color="primary" routerLink="/team">
+          MEET THE TEAM
+        </a>
+      </div>
+    </div>
+    <app-placeholder>
+      <img src="https://via.placeholder.com/600x300" alt="image" />
+    </app-placeholder>
+  </div>
+</section>

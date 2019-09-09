@@ -1,1 +1,42 @@
-<p>event-introduction works!</p>
+<section>
+  <div class="container grid">
+    <div>
+      <app-header-fragment fragment="eventIntroduction">
+        <h1>GDG Devfest Kolkata 2019</h1>
+      </app-header-fragment>
+      <div>
+        <p class="mat-body-strong">We are in the Endgame now!</p>
+        <p>
+          Join us on Sunday, 4 August, 2019 at
+          <a
+            href="http://novotelkolkata.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Novotel Kolkata
+          </a>
+          for a day filled with amazing Tech talks and demos.
+        </p>
+        <p>
+          Unable to attend? The DevFest Sessions will be available on YouTube
+          in a few days. Make sure to sign up to receive event information and
+          updates. Take part in the conversation on Twitter by using the
+          hashtags
+          <span class="mat-body-strong">#DevFestKol</span> and
+          <span class="mat-body-strong">#DevFest19</span>.
+        </p>
+        <button mat-raised-button color="primary">REGISTER</button>
+      </div>
+    </div>
+    <app-placeholder>
+      <app-placeholder-spinner *ngIf="!isResourceLoaded"></app-placeholder-spinner>
+      <iframe
+        [src]="urlSafe"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        (load)="onResourceLoad()"
+      >
+      </iframe>
+    </app-placeholder>
+  </div>
+</section>

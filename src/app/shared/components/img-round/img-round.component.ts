@@ -9,10 +9,4 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 export class ImgRoundComponent {
   @Input() readonly src: string;
   @Input() readonly alt: string;
-  @Input() readonly diameter: number;
-  isImgLoaded: boolean;
-
-  onImgLoad() {
-    this.isImgLoaded = true;
-  }
 }

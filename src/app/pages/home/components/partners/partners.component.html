@@ -1,1 +1,36 @@
-<p>partners works!</p>
+<section>
+  <div class="container">
+    <app-header-fragment fragment="partners">
+      <h1>Partners</h1>
+    </app-header-fragment>
+    <p>
+      We thank our Partners for their support towards the community. If you want
+      to be showcased through DevFest Kolkata, check the
+      <a
+        href="https://forms.gle/z8ZivnfjFQYbX55T6"
+        target="_blank"
+        rel="noopener noreferrer"
+        >sponsorship details</a
+      >.
+    </p>
+    <div class="grid-small">
+      <mat-card *ngFor="let partner of [0, 0, 0, 0, 0, 0, 0]">
+        <h3>Partner type</h3>
+        <div mat-card-image class="partner-image">
+          <img src="https://via.placeholder.com/100" alt="image" />
+        </div>
+        <mat-card-actions align="end">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            mat-button
+            color="primary"
+          >
+            VIEW
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>

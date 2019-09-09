@@ -10,7 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class MapComponent implements OnChanges {
   @Input() private readonly url: string;
   urlSafe: SafeResourceUrl;
-  isMapLoaded: boolean;
+  isResourceLoaded: boolean;
 
   constructor(private sanitizer: DomSanitizer) {}
 
@@ -18,7 +18,7 @@ export class MapComponent implements OnChanges {
     this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
-  onMapLoad() {
-    this.isMapLoaded = true;
+  onResourceLoad() {
+    this.isResourceLoaded = true;
   }
 }

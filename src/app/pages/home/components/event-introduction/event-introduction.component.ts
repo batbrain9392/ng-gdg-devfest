@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, OnChanges } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-event-introduction',
@@ -6,11 +7,18 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./event-introduction.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EventIntroductionComponent implements OnInit {
+export class EventIntroductionComponent implements OnChanges {
+  @Input() private readonly url: string;
+  urlSafe: SafeResourceUrl;
+  isResourceLoaded: boolean;
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) {}
 
-  ngOnInit() {
+  ngOnChanges() {
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
+  onResourceLoad() {
+    this.isResourceLoaded = true;
+  }
 }
