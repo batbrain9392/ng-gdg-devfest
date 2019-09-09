@@ -23,18 +23,18 @@ export class ServiceWorkerService {
       const appIsStable$ = this.applicationRef.isStable.pipe(
         first(isStable => isStable)
       );
-      const every3Hours$ = interval(3 * 60 * 60 * 1000);
-      const every3HoursOnceAppIsStable$ = concat(appIsStable$, every3Hours$);
-      every3HoursOnceAppIsStable$.subscribe(async () => {
+      const everyHour$ = interval(1 * 60 * 60 * 1000);
+      const everyHourOnceAppIsStable$ = concat(appIsStable$, everyHour$);
+      everyHourOnceAppIsStable$.subscribe(async () => {
         console.log('App update check: start');
         await this.swUpdate.checkForUpdate();
         console.log('App update check: done');
       });
       this.swUpdate.available.subscribe(updateObj => {
+        console.log({ updateObj });
         this.matSnackBar.open(
           'New update available! Download from the top bar.'
         );
-        console.log({ updateObj });
       });
     }
   }
