@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-placeholder-spinner',
@@ -6,11 +6,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./placeholder-spinner.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlaceholderSpinnerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class PlaceholderSpinnerComponent {
+  @Input() diameter = 100;
 }

@@ -1,3 +1,7 @@
 <div class="img-container mat-elevation-z2">
-  <img [src]="src" [alt]="alt" />
+  <app-placeholder-spinner
+    [diameter]="128"
+    *ngIf="!isImgLoaded"
+  ></app-placeholder-spinner>
+  <img [src]="src" [alt]="alt" (load)="onImgLoad()" />
 </div>

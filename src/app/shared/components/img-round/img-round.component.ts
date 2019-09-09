@@ -1,11 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-img-round',
   templateUrl: './img-round.component.html',
-  styleUrls: ['./img-round.component.scss']
+  styleUrls: ['./img-round.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImgRoundComponent {
-  @Input() src = 'https://via.placeholder.com/128';
-  @Input() alt = 'headshot';
+  @Input() readonly src = 'https://via.placeholder.com/128';
+  @Input() readonly alt = 'headshot';
+  isImgLoaded: boolean;
+
+  onImgLoad() {
+    this.isImgLoaded = true;
+  }
 }
