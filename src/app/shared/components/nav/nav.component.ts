@@ -8,7 +8,7 @@ import {
   WebShareService
 } from '../../services';
 import { IRoute } from '../../models';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-nav',
@@ -25,20 +25,22 @@ export class NavComponent {
       shareReplay()
     );
   isDarkTheme$ = this.themeService.isDarkTheme$;
-  updateAvailable$ = this.serviceWorkerService.updateAvailable$;
+  isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
+  isWebShareAvailable$ = this.webShareService.isWebShareAvailable$;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private themeService: ThemeService,
     private serviceWorkerService: ServiceWorkerService,
     private webShareService: WebShareService,
-    private titleService: Title
+    private titleService: Title,
+    private metaService: Meta
   ) {}
 
   onShareClick() {
     this.webShareService.share({
       title: this.titleService.getTitle(),
-      text: 'GDG Devfest official PWA template',
+      text: this.metaService.getTag('name=description').content,
       url: window.location.origin
     });
   }

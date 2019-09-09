@@ -33,8 +33,8 @@
           type="button"
           mat-icon-button
           (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async"
           matTooltip="Toggle menu"
+          *ngIf="isHandset$ | async"
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
@@ -50,7 +50,12 @@
             <span>{{ route.label }}</span>
           </button>
         </ng-container>
-        <button mat-icon-button (click)="onShareClick()" matTooltip="Share app">
+        <button
+          mat-icon-button
+          (click)="onShareClick()"
+          matTooltip="Share app"
+          *ngIf="isWebShareAvailable$ | async"
+        >
           <mat-icon>share</mat-icon>
         </button>
         <button
@@ -69,8 +74,8 @@
         <button
           mat-icon-button
           (click)="updateApp()"
-          *ngIf="updateAvailable$ | async"
           matTooltip="Update app"
+          *ngIf="isUpdateAvailable$ | async"
         >
           <mat-icon class="animated infinite heartBeat delay-3s slower">
             system_update
