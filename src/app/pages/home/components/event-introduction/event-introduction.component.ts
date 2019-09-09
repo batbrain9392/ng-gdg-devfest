@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-event-introduction',
   templateUrl: './event-introduction.component.html',
-  styleUrls: ['./event-introduction.component.scss'],
+  styleUrls: ['./event-introduction.component.scss', '../home.shared.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventIntroductionComponent implements OnChanges {
