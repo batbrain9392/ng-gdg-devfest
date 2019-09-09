@@ -12,7 +12,8 @@ import {
   MatCardModule,
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
-  MatDialogModule
+  MatDialogModule,
+  MatSnackBarConfig
 } from '@angular/material';
 
 @NgModule({
@@ -29,7 +30,13 @@ import {
     MatDialogModule
   ],
   providers: [
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3500 } }
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 3500,
+        horizontalPosition: 'start'
+      } as MatSnackBarConfig
+    }
   ]
 })
 export class MaterialModule {
