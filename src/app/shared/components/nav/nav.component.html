@@ -81,6 +81,13 @@
             system_update
           </mat-icon>
         </button>
+        <div
+          class="spinner-container white-spinner"
+          matTooltip="Updating app"
+          *ngIf="isUpdating$ | async"
+        >
+          <mat-spinner diameter="20" strokeWidth="10"></mat-spinner>
+        </div>
       </div>
     </mat-toolbar>
     <main>

@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -8,7 +9,6 @@ import {
   WebShareService
 } from '../../services';
 import { IRoute } from '../../models';
-import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-nav',
@@ -26,6 +26,7 @@ export class NavComponent {
     );
   isDarkTheme$ = this.themeService.isDarkTheme$;
   isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
+  isUpdating$ = this.serviceWorkerService.isUpdating$;
   isWebShareAvailable$ = this.webShareService.isWebShareAvailable$;
 
   constructor(
@@ -33,14 +34,14 @@ export class NavComponent {
     private themeService: ThemeService,
     private serviceWorkerService: ServiceWorkerService,
     private webShareService: WebShareService,
-    private titleService: Title,
-    private metaService: Meta
+    private title: Title,
+    private meta: Meta
   ) {}
 
   onShareClick() {
     this.webShareService.share({
-      title: this.titleService.getTitle(),
-      text: this.metaService.getTag('name=description').content,
+      title: this.title.getTitle(),
+      text: this.meta.getTag('name=description').content,
       url: window.location.origin
     });
   }

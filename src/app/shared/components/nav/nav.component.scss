@@ -43,3 +43,13 @@ main {
 .p-0 {
   padding: 0;
 }
+
+.spinner-container {
+  $size: 40px;
+  height: $size;
+  width: $size;
+  display: grid;
+  place-content: center;
+  align-content: center;
+  justify-content: center;
+}
