@@ -18,14 +18,15 @@ export class WebShareService {
   );
 
   share({ title, text, url }: IWebShare) {
-    const share = this.webShare.getValue();
-    if (share) {
-      share({ title, text, url })
-        .then(() => console.log('Successful share'))
-        .catch((error: any) => console.log('Error sharing', error));
-    } else {
-      this.apiAvailabilityLog(!!share);
-    }
+    this.webShare.subscribe(share => {
+      if (share) {
+        share({ title, text, url })
+          .then(() => console.log('Successful share'))
+          .catch((error: any) => console.log('Error sharing', error));
+      } else {
+        this.apiAvailabilityLog(!!share);
+      }
+    });
   }
 
   private apiAvailabilityLog(isWebShareAvailable: boolean) {
