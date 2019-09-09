@@ -2,11 +2,13 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   template: `
-    <h1 mat-dialog-title>Confirm App Update</h1>
+    <h1 mat-dialog-title>Update Confirmation</h1>
     <div mat-dialog-content>
-      Updating app might cause loss of unsaved data. Please save all data before
-      proceeding.<br />
-      Continue with the update?
+      <p>
+        The window will reload and any unsaved data will be lost. However, all
+        saved user data will remain intact. The update might take a few seconds.
+      </p>
+      Continue?
     </div>
     <div mat-dialog-actions align="end">
       <button mat-stroked-button [mat-dialog-close]="false">

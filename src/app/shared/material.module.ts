@@ -12,8 +12,8 @@ import {
   MatCardModule,
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
-  MatDialogModule,
-  MatSnackBarConfig
+  MatSnackBarConfig,
+  MatDialogModule
 } from '@angular/material';
 
 @NgModule({
