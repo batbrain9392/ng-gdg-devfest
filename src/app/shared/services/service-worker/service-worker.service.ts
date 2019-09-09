@@ -21,19 +21,21 @@ export class ServiceWorkerService {
   watchForUpdates() {
     if (this.swUpdate.isEnabled) {
       const appIsStable$ = this.applicationRef.isStable.pipe(
-        first(isStable => isStable === true)
+        first(isStable => isStable)
       );
-      const everySixHours$ = interval(6 * 60 * 60 * 1000);
-      const everySixHoursOnceAppIsStable$ = concat(
-        appIsStable$,
-        everySixHours$
-      );
-      everySixHoursOnceAppIsStable$.subscribe(() =>
-        this.swUpdate.checkForUpdate()
-      );
-      this.swUpdate.available.subscribe(_ =>
-        this.matSnackBar.open('New app available! Update from top bar.')
-      );
+      const every3Hours$ = interval(3 * 60 * 60 * 1000);
+      const every3HoursOnceAppIsStable$ = concat(appIsStable$, every3Hours$);
+      every3HoursOnceAppIsStable$.subscribe(async () => {
+        console.log('App update check: start');
+        await this.swUpdate.checkForUpdate();
+        console.log('App update check: done');
+      });
+      this.swUpdate.available.subscribe(updateObj => {
+        this.matSnackBar.open(
+          'New update available! Download from the top bar.'
+        );
+        console.log({ updateObj });
+      });
     }
   }
 
@@ -43,7 +45,14 @@ export class ServiceWorkerService {
       .afterClosed()
       .subscribe((isUpdate: boolean) => {
         if (isUpdate) {
-          this.swUpdate.activateUpdate().then(() => document.location.reload());
+          this.swUpdate.activateUpdate().then(() =>
+            this.matSnackBar
+              .open('App updated. Reloading in 3 seconds.', 'RELOAD NOW', {
+                duration: 3000
+              })
+              .afterDismissed()
+              .subscribe(_ => document.location.reload())
+          );
         }
       });
   }
