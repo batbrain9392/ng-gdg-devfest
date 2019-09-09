@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { SwUpdate } from '@angular/service-worker';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { interval, concat, Subject } from 'rxjs';
-import { first, map } from 'rxjs/operators';
+import { first, map, shareReplay } from 'rxjs/operators';
 import { UpdateAppComponent } from '../../components/dialogs';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class ServiceWorkerService {
     map(value => !!value)
   );
   private readonly isUpdating = new Subject<boolean>();
-  readonly isUpdating$ = this.isUpdating.asObservable();
+  readonly isUpdating$ = this.isUpdating.asObservable().pipe(shareReplay());
 
   constructor(
     private applicationRef: ApplicationRef,
