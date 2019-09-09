@@ -7,8 +7,9 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImgRoundComponent {
-  @Input() readonly src = 'https://via.placeholder.com/128';
-  @Input() readonly alt = 'headshot';
+  @Input() readonly src: string;
+  @Input() readonly alt: string;
+  @Input() readonly diameter: number;
   isImgLoaded: boolean;
 
   onImgLoad() {
