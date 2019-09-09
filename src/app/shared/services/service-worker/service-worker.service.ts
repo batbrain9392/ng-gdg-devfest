@@ -9,7 +9,7 @@ import { UpdateAppComponent } from '../../components/dialogs';
   providedIn: 'root'
 })
 export class ServiceWorkerService {
-  updateAvailable$ = this.swUpdate.available.pipe(map(value => !!value));
+  readonly isUpdateAvailable$ = this.swUpdate.available.pipe(map(value => !!value));
 
   constructor(
     private applicationRef: ApplicationRef,

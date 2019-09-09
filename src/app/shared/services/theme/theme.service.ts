@@ -6,8 +6,8 @@ import { shareReplay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ThemeService {
-  private isDarkTheme = new BehaviorSubject(false);
-  isDarkTheme$ = this.isDarkTheme.asObservable().pipe(shareReplay());
+  private readonly isDarkTheme = new BehaviorSubject(false);
+  readonly isDarkTheme$ = this.isDarkTheme.asObservable().pipe(shareReplay());
 
   toggleDarkTheme() {
     this.isDarkTheme.next(!this.isDarkTheme.getValue());
