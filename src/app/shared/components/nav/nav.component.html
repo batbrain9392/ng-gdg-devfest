@@ -38,7 +38,7 @@
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span class="custom-typography">GDG Devfest</span>
+        <span class="custom-typography">BlrDroid</span>
         <span class="spacer"></span>
         <ng-container *ngIf="!(isHandset$ | async)">
           <a
@@ -60,8 +60,6 @@
         </button>
         <button
           mat-icon-button
-          class="theme-change"
-          [class.offline]="isOffline$ | async"
           (click)="toggleDarkTheme()"
           [matTooltip]="
             'Switch to ' +
