@@ -8,11 +8,12 @@ import { MaterialModule } from './shared/material.module';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
-import { components, entryComponents } from './shared/components';
 import { pages } from './pages';
+import { components, entryComponents } from './shared/components';
+import { directives } from './shared/directives';
 
 @NgModule({
-  declarations: [AppComponent, ...components, ...pages],
+  declarations: [AppComponent, ...pages, ...components, ...directives],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,

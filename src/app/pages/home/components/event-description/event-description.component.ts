@@ -6,4 +6,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./event-description.component.scss', '../home.shared.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EventDescriptionComponent {}
+export class EventDescriptionComponent {
+  loadResource: boolean;
+
+  onViewed() {
+    this.loadResource = true;
+  }
+}

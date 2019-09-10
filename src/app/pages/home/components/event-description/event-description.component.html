@@ -17,8 +17,12 @@
         <button mat-raised-button color="accent">CALL FOR SHOWCASE</button>
       </div>
     </div>
-    <app-placeholder>
-      <img src="https://via.placeholder.com/600x300" alt="image" />
+    <app-placeholder (appDeferLoad)="onViewed()">
+      <img
+        src="https://via.placeholder.com/600x300"
+        alt="image"
+        *ngIf="loadResource"
+      />
     </app-placeholder>
   </div>
 </section>

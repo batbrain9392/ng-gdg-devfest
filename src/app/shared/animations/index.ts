@@ -1,8 +1,10 @@
-// https://github.com/mygu/ngx-animate
+// https://daneden.github.io/animate.css/
+// https://github.com/mygu/ngx-animate/
 
-import { trigger, transition, useAnimation } from '@angular/animations';
-import { bounce } from 'ngx-animate';
+// import { trigger, transition, useAnimation } from '@angular/animations';
+// import { fadeOutUp, fadeInUp } from 'ngx-animate';
 
-export const animBounce = trigger('bounce', [
-  transition('* => *', useAnimation(bounce))
-]);
+// export const themeChange = trigger('themeChange', [
+//   transition(':enter', useAnimation(fadeInUp)),
+//   transition(':leave', useAnimation(fadeOutUp))
+// ]);

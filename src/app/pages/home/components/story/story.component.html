@@ -6,14 +6,14 @@
       </app-header-fragment>
       <div>
         <p>
-          Share your experience at DevFest '18 and what you loved/ did not
-          love about the event.
+          Share your experience at DevFest '18 and what you loved/ did not love
+          about the event.
         </p>
         <p>
           We would be looking forward to hearing your DevFest Stories and how
-          that has shaped your actions, work, passion and maybe life in
-          general. Made some amazing friends at DevFest? Tell us about that.
-          Use the hashtags
+          that has shaped your actions, work, passion and maybe life in general.
+          Made some amazing friends at DevFest? Tell us about that. Use the
+          hashtags
           <span class="mat-body-strong">#DevFestKol</span> and
           <span class="mat-body-strong">#DevFest19</span>.
         </p>
@@ -28,8 +28,12 @@
         </a>
       </div>
     </div>
-    <app-placeholder>
-      <img src="https://via.placeholder.com/600x300" alt="image" />
+    <app-placeholder (appDeferLoad)="onViewed()">
+      <img
+        src="https://via.placeholder.com/600x300"
+        alt="image"
+        *ngIf="loadResource"
+      />
     </app-placeholder>
   </div>
 </section>

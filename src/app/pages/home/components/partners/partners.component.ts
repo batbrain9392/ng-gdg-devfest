@@ -6,4 +6,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./partners.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PartnersComponent {}
+export class PartnersComponent {
+  loadResource: boolean;
+
+  onViewed() {
+    this.loadResource = true;
+  }
+}

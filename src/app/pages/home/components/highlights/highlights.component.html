@@ -13,11 +13,19 @@
       >complete album</a
     >.
     <div class="grid">
-      <app-placeholder>
-        <img src="https://via.placeholder.com/600x300" alt="image" />
+      <app-placeholder (appDeferLoad)="onViewed(1)">
+        <img
+          src="https://via.placeholder.com/600x300"
+          alt="image"
+          *ngIf="loadResource1"
+        />
       </app-placeholder>
-      <app-placeholder>
-        <img src="https://via.placeholder.com/600x300" alt="image" />
+      <app-placeholder (appDeferLoad)="onViewed(2)">
+        <img
+          src="https://via.placeholder.com/600x300"
+          alt="image"
+          *ngIf="loadResource2"
+        />
       </app-placeholder>
     </div>
   </div>

@@ -16,8 +16,16 @@
     <div class="grid-small">
       <mat-card *ngFor="let partner of [0, 0, 0, 0, 0, 0, 0]">
         <h3>Partner type</h3>
-        <div mat-card-image class="partner-image">
-          <img src="https://via.placeholder.com/100" alt="image" />
+        <div
+          mat-card-image
+          class="partner-image"
+          (appDeferLoad)="onViewed()"
+        >
+          <img
+            src="https://via.placeholder.com/100"
+            alt="image"
+            *ngIf="loadResource"
+          />
         </div>
         <mat-card-actions align="end">
           <a

@@ -28,13 +28,14 @@
         <button mat-raised-button color="primary">REGISTER</button>
       </div>
     </div>
-    <app-placeholder>
+    <app-placeholder (appDeferLoad)="onViewed()">
       <app-placeholder-spinner *ngIf="!isResourceLoaded"></app-placeholder-spinner>
       <iframe
         [src]="urlSafe"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
         (load)="onResourceLoad()"
+        *ngIf="loadResource"
       >
       </iframe>
     </app-placeholder>
