@@ -27,7 +27,7 @@ export class NavComponent {
   isDarkTheme$ = this.themeService.isDarkTheme$;
   isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
   isUpdating$ = this.serviceWorkerService.isUpdating$;
-  isWebShareAvailable$ = this.webShareService.isWebShareAvailable$;
+  isWebShareAvailable = this.webShareService.isWebShareAvailable;
 
   constructor(
     private breakpointObserver: BreakpointObserver,

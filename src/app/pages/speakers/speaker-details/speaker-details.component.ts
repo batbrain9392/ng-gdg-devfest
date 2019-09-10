@@ -8,7 +8,7 @@ import { WebShareService } from '../../../shared/services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpeakerDetailsComponent {
-  isWebShareAvailable$ = this.webShareService.isWebShareAvailable$;
+  isWebShareAvailable = this.webShareService.isWebShareAvailable;
 
   constructor(private webShareService: WebShareService) {}
 
