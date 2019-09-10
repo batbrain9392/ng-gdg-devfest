@@ -1,5 +1,11 @@
 <section class="white" (appDeferLoad)="onViewed()">
   <app-placeholder-spinner *ngIf="!isResourceLoaded"></app-placeholder-spinner>
-  <iframe [src]="urlSafe" allowfullscreen (load)="onResourceLoad()" *ngIf="loadResource"></iframe>
+  <iframe
+    title="Google map"
+    [src]="urlSafe"
+    allowfullscreen
+    (load)="onResourceLoad()"
+    *ngIf="loadResource"
+  ></iframe>
 </section>
 <mat-divider></mat-divider>

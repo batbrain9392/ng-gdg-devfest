@@ -18,8 +18,8 @@
           for a day filled with amazing tech talks and demos.
         </p>
         <p>
-          Unable to attend? The DevFest Sessions will be available on YouTube
-          in a few days. Make sure to sign up to receive event information and
+          Unable to attend? The DevFest Sessions will be available on YouTube in
+          a few days. Make sure to sign up to receive event information and
           updates. Take part in the conversation on Twitter by using the
           hashtags
           <span class="mat-body-strong">#hashtag1</span> and
@@ -29,8 +29,11 @@
       </div>
     </div>
     <app-placeholder (appDeferLoad)="onViewed()">
-      <app-placeholder-spinner *ngIf="!isResourceLoaded"></app-placeholder-spinner>
+      <app-placeholder-spinner
+        *ngIf="!isResourceLoaded"
+      ></app-placeholder-spinner>
       <iframe
+        title="Youtube video"
         [src]="urlSafe"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen

@@ -34,6 +34,7 @@
           mat-icon-button
           (click)="drawer.toggle()"
           matTooltip="Toggle menu"
+          aria-label="Toggle menu"
           *ngIf="isHandset$ | async"
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
@@ -54,6 +55,7 @@
           mat-icon-button
           (click)="onShareClick()"
           matTooltip="Share app"
+          aria-label="Share app"
           *ngIf="isWebShareAvailable"
         >
           <mat-icon>share</mat-icon>
@@ -62,6 +64,11 @@
           mat-icon-button
           (click)="toggleDarkTheme()"
           [matTooltip]="
+            'Switch to ' +
+            ((isDarkTheme$ | async) ? 'light' : 'dark') +
+            ' theme'
+          "
+          [attr.aria-label]="
             'Switch to ' +
             ((isDarkTheme$ | async) ? 'light' : 'dark') +
             ' theme'
@@ -78,6 +85,7 @@
             mat-icon-button
             (click)="updateApp()"
             matTooltip="Update app"
+            aria-label="Update app"
             *ngIf="!(isUpdating$ | async)"
           >
             <mat-icon class="animated infinite heartBeat delay-3s slower">
@@ -87,6 +95,7 @@
           <div
             class="icon-container white-spinner"
             matTooltip="Updating app"
+            aria-label="Updating app"
             *ngIf="isUpdating$ | async"
           >
             <mat-spinner diameter="20" strokeWidth="10"></mat-spinner>
