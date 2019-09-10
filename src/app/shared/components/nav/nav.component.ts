@@ -29,7 +29,7 @@ export class NavComponent {
   isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
   isUpdating$ = this.serviceWorkerService.isUpdating$;
   isWebShareAvailable = this.webShareService.isWebShareAvailable;
-  isOnline$ = this.offlineService.isOnline$;
+  isOffline$ = this.offlineService.isOffline$;
 
   constructor(
     private breakpointObserver: BreakpointObserver,

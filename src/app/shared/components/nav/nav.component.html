@@ -27,7 +27,6 @@
     <mat-toolbar
       [color]="(isDarkTheme$ | async) ? null : 'primary'"
       class="app-toolbar mat-elevation-z6 p-0"
-      [class.offline]="!(isOnline$ | async)"
     >
       <div class="container">
         <button
@@ -61,6 +60,8 @@
         </button>
         <button
           mat-icon-button
+          class="theme-change"
+          [class.offline]="isOffline$ | async"
           (click)="toggleDarkTheme()"
           [matTooltip]="
             'Switch to ' +
@@ -72,7 +73,9 @@
             {{ (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay' }}
           </mat-icon>
         </button>
-        <ng-container *ngIf="isUpdateAvailable$ | async">
+        <ng-container
+          *ngIf="!(isOffline$ | async) && (isUpdateAvailable$ | async)"
+        >
           <button
             mat-icon-button
             (click)="updateApp()"
@@ -84,7 +87,7 @@
             </mat-icon>
           </button>
           <div
-            class="spinner-container white-spinner"
+            class="icon-container white-spinner"
             matTooltip="Updating app"
             *ngIf="isUpdating$ | async"
           >

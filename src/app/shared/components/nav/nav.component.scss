@@ -14,10 +14,6 @@
   top: 0;
   z-index: 6;
 
-  &.offline {
-    background-color: #757575;
-  }
-
   .container {
     padding: 0 16px;
     display: flex;
@@ -56,4 +52,12 @@ main {
   place-content: center;
   align-content: center;
   justify-content: center;
+}
+
+.theme-change {
+  transition: color 500ms;
+}
+
+.offline {
+  color: #bdbdbd;
 }
