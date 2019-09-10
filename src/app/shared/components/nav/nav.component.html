@@ -40,15 +40,15 @@
         </button>
         <span class="custom-typography">GDG Devfest</span>
         <span class="spacer"></span>
-        <ng-container *ngIf="(isHandset$ | async) === false">
-          <button
+        <ng-container *ngIf="!(isHandset$ | async)">
+          <a
             mat-button
             *ngFor="let route of routes"
             [routerLink]="route.path"
             routerLinkActive="router-link-active"
           >
             <span>{{ route.label }}</span>
-          </button>
+          </a>
         </ng-container>
         <button
           mat-icon-button
@@ -71,23 +71,25 @@
             {{ (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay' }}
           </mat-icon>
         </button>
-        <button
-          mat-icon-button
-          (click)="updateApp()"
-          matTooltip="Update app"
-          *ngIf="(isUpdateAvailable$ | async) && !(isUpdating$ | async)"
-        >
-          <mat-icon class="animated infinite heartBeat delay-3s slower">
-            system_update
-          </mat-icon>
-        </button>
-        <div
-          class="spinner-container white-spinner"
-          matTooltip="Updating app"
-          *ngIf="isUpdating$ | async"
-        >
-          <mat-spinner diameter="20" strokeWidth="10"></mat-spinner>
-        </div>
+        <ng-container *ngIf="isUpdateAvailable$ | async">
+          <button
+            mat-icon-button
+            (click)="updateApp()"
+            matTooltip="Update app"
+            *ngIf="!(isUpdating$ | async)"
+          >
+            <mat-icon class="animated infinite heartBeat delay-3s slower">
+              system_update
+            </mat-icon>
+          </button>
+          <div
+            class="spinner-container white-spinner"
+            matTooltip="Updating app"
+            *ngIf="isUpdating$ | async"
+          >
+            <mat-spinner diameter="20" strokeWidth="10"></mat-spinner>
+          </div>
+        </ng-container>
       </div>
     </mat-toolbar>
     <main>
