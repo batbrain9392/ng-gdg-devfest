@@ -13,17 +13,12 @@ export class WebShareService {
   }
 
   share({ title, text, url }: IWebShare) {
-    // if (navigator && (navigator as any).share) {
-    //   (navigator as any)
-    //     .share({ title, text, url })
-    //     .then(() => console.log('Successful share'))
-    //     .catch((error: any) => console.log('Error sharing', error));
-    // } else {
-    //   console.log('No share api');
-    // }
     alert(JSON.stringify(this.shareFunction));
+    alert(this.isWebShareAvailable);
+    alert(JSON.stringify(navigator && (navigator as any).share));
     if (this.isWebShareAvailable) {
-      this.shareFunction({ title, text, url })
+      (navigator as any)
+        .share({ title, text, url })
         .then(() => console.log('Successful share'))
         .catch((error: any) => console.log('Error sharing', error));
     } else {
