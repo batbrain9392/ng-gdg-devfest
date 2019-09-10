@@ -1,3 +1,5 @@
+// npm i ngx-animate
+
 // https://daneden.github.io/animate.css/
 // https://github.com/mygu/ngx-animate/
 
