@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { BehaviorSubject, combineLatest } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, fromEvent } from 'rxjs';
+import { shareReplay, map } from 'rxjs/operators';
 import { OfflineService } from '../offline/offline.service';
 
 @Injectable({
@@ -22,17 +22,14 @@ export class ThemeService {
     private meta: Meta,
     private mediaMatcher: MediaMatcher
   ) {
-    this.preferDarkTheme.addEventListener('change', ({ matches }) =>
-      this.isDarkTheme.next(matches)
-    );
     this.watchAndUpdateMetaThemeColor();
     this.watchDeviceColorSchemeAndUpdateTheme();
   }
 
   watchDeviceColorSchemeAndUpdateTheme() {
-    this.preferDarkTheme.addEventListener('change', ({ matches }) =>
-      this.isDarkTheme.next(matches)
-    );
+    fromEvent<MediaQueryListEvent>(this.preferDarkTheme, 'change')
+      .pipe(map(({ matches }) => matches))
+      .subscribe(value => this.isDarkTheme.next(value));
   }
 
   watchAndUpdateMetaThemeColor() {
