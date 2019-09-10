@@ -11,9 +11,9 @@ export class OfflineService {
   private readonly offline$ = fromEvent(window, 'offline').pipe(mapTo(false));
   private readonly isOnline = new BehaviorSubject<boolean>(navigator.onLine);
   readonly isOnline$ = this.isOnline.asObservable().pipe(
-    tap(isOnline =>
-      this.matSnackBar.open(`You are ${isOnline ? 'online' : 'offline'}.`)
-    ),
+    // tap(isOnline =>
+    //   this.matSnackBar.open(`You are ${isOnline ? 'online' : 'offline'}.`)
+    // ),
     shareReplay()
   );
 
