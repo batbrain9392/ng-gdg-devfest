@@ -19,6 +19,7 @@ export class WebShareService {
 
   share({ title, text, url }: IWebShare) {
     const sub = this.webShare.subscribe(share => {
+      alert(JSON.stringify({ share }));
       if (share) {
         share({ title, text, url })
           .then(() => console.log('Successful share'))
