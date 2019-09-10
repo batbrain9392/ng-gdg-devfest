@@ -9,10 +9,14 @@
   }
 }
 
-.mat-toolbar {
+.app-toolbar {
   position: fixed;
   top: 0;
   z-index: 6;
+
+  &.offline {
+    background-color: #757575;
+  }
 
   .container {
     padding: 0 16px;

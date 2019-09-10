@@ -27,6 +27,7 @@
     <mat-toolbar
       [color]="(isDarkTheme$ | async) ? null : 'primary'"
       class="app-toolbar mat-elevation-z6 p-0"
+      [class.offline]="!(isOnline$ | async)"
     >
       <div class="container">
         <button

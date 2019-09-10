@@ -1,5 +1,4 @@
 import { ApplicationRef, Injectable } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { SwUpdate } from '@angular/service-worker';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { interval, concat, Subject } from 'rxjs';
@@ -20,8 +19,7 @@ export class ServiceWorkerService {
     private applicationRef: ApplicationRef,
     private swUpdate: SwUpdate,
     private matSnackBar: MatSnackBar,
-    private dialog: MatDialog,
-    private title: Title
+    private dialog: MatDialog
   ) {}
 
   watchForUpdates() {
@@ -40,7 +38,6 @@ export class ServiceWorkerService {
       });
       this.swUpdate.available.subscribe(updateObj => {
         console.log({ updateObj });
-        this.title.setTitle(`⭳ ${this.title.getTitle()}`);
         this.matSnackBar.open(
           'New update available! Download from the top bar.'
         );

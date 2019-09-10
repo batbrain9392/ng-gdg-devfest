@@ -6,7 +6,8 @@ import { map, shareReplay } from 'rxjs/operators';
 import {
   ThemeService,
   ServiceWorkerService,
-  WebShareService
+  WebShareService,
+  OfflineService
 } from '../../services';
 import { IRoute } from '../../models';
 
@@ -28,12 +29,14 @@ export class NavComponent {
   isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
   isUpdating$ = this.serviceWorkerService.isUpdating$;
   isWebShareAvailable = this.webShareService.isWebShareAvailable;
+  isOnline$ = this.offlineService.isOnline$;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private themeService: ThemeService,
     private serviceWorkerService: ServiceWorkerService,
     private webShareService: WebShareService,
+    private offlineService: OfflineService,
     private title: Title,
     private meta: Meta
   ) {}
