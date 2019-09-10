@@ -5,8 +5,7 @@ import { IWebShare } from './i-web-share';
   providedIn: 'root'
 })
 export class WebShareService {
-  private readonly localNavigator = navigator as any;
-  readonly shareFunction = this.localNavigator && this.localNavigator.share;
+  readonly shareFunction = navigator && (navigator as any).share;
   readonly isWebShareAvailable = !!this.shareFunction;
 
   constructor() {
@@ -14,6 +13,14 @@ export class WebShareService {
   }
 
   share({ title, text, url }: IWebShare) {
+    // if (navigator && (navigator as any).share) {
+    //   (navigator as any)
+    //     .share({ title, text, url })
+    //     .then(() => console.log('Successful share'))
+    //     .catch((error: any) => console.log('Error sharing', error));
+    // } else {
+    //   console.log('No share api');
+    // }
     alert(JSON.stringify(this.shareFunction));
     if (this.isWebShareAvailable) {
       this.shareFunction({ title, text, url })
