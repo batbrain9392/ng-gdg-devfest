@@ -4,6 +4,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { BehaviorSubject, combineLatest, fromEvent } from 'rxjs';
 import { shareReplay, map } from 'rxjs/operators';
 import { OfflineService } from '../offline/offline.service';
+import { PlatformService } from '../platform/platform.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,15 @@ export class ThemeService {
   readonly isDarkTheme$ = this.isDarkTheme.asObservable().pipe(shareReplay());
 
   constructor(
+    platformService: PlatformService,
     private offlineService: OfflineService,
     private meta: Meta,
     private mediaMatcher: MediaMatcher
   ) {
-    this.watchAndUpdateMetaThemeColor();
-    this.watchDeviceColorSchemeAndUpdateTheme();
+    if (platformService.isBrowser) {
+      this.watchAndUpdateMetaThemeColor();
+      this.watchDeviceColorSchemeAndUpdateTheme();
+    }
   }
 
   watchDeviceColorSchemeAndUpdateTheme() {

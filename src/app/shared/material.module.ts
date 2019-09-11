@@ -16,6 +16,7 @@ import {
   MatDialogModule,
   MatProgressSpinnerModule
 } from '@angular/material';
+import { PlatformService } from './services';
 
 @NgModule({
   exports: [
@@ -42,9 +43,17 @@ import {
   ]
 })
 export class MaterialModule {
-  constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
+  constructor(
+    matIconRegistry: MatIconRegistry,
+    domSanitizer: DomSanitizer,
+    platformService: PlatformService
+  ) {
+    const site = platformService.isBrowser
+      ? window.location.origin
+      : 'https://gdg-devfest-ng.web.app';
+    const url = `${site}/assets/fonts/mdi.svg`;
     matIconRegistry.addSvgIconSet(
-      domSanitizer.bypassSecurityTrustResourceUrl('./assets/fonts/mdi.svg')
+      domSanitizer.bypassSecurityTrustResourceUrl(url)
     );
   }
 }

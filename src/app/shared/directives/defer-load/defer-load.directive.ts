@@ -5,6 +5,7 @@ import {
   ElementRef,
   AfterViewInit
 } from '@angular/core';
+import { PlatformService } from '../../services';
 
 @Directive({
   selector: '[appDeferLoad]'
@@ -13,13 +14,18 @@ export class DeferLoadDirective implements AfterViewInit {
   @Output() appDeferLoad = new EventEmitter<void>();
   private intersectionObserver: IntersectionObserver;
 
-  constructor(private element: ElementRef) {}
+  constructor(
+    private element: ElementRef,
+    private platformService: PlatformService
+  ) {}
 
   ngAfterViewInit() {
-    this.intersectionObserver = new IntersectionObserver(entries =>
-      this.checkForIntersection(entries)
-    );
-    this.intersectionObserver.observe(this.element.nativeElement as Element);
+    if (this.platformService.isBrowser) {
+      this.intersectionObserver = new IntersectionObserver(entries =>
+        this.checkForIntersection(entries)
+      );
+      this.intersectionObserver.observe(this.element.nativeElement as Element);
+    }
   }
 
   private checkForIntersection(entries: IntersectionObserverEntry[]) {
