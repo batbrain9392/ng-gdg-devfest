@@ -15,7 +15,7 @@ import { directives } from './shared/directives';
 @NgModule({
   declarations: [AppComponent, ...pages, ...components, ...directives],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
