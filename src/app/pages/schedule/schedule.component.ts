@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { SeoService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-schedule',
@@ -6,4 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./schedule.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ScheduleComponent {}
+export class ScheduleComponent implements OnInit {
+  constructor(private seoService: SeoService) {}
+
+  ngOnInit() {}
+}

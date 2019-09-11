@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
+import { SeoService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-speaker-list',
@@ -8,11 +9,9 @@ import { Observable, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpeakerListComponent implements OnInit {
-  speakers$: Observable<any>;
+  speakers$ = of([1, 1, 1, 1, 1, 1, 1, 1]);
 
-  constructor() {
-    this.speakers$ = of([1, 1, 1, 1, 1, 1, 1, 1]);
-  }
+  constructor(private seoService: SeoService) {}
 
   ngOnInit() {}
 }

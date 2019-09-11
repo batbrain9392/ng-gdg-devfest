@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { WebShareService } from '../../../shared/services';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { WebShareService, SeoService } from '../../../shared/services';
 
 @Component({
   selector: 'app-speaker-details',
@@ -7,10 +7,12 @@ import { WebShareService } from '../../../shared/services';
   styleUrls: ['./speaker-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SpeakerDetailsComponent {
+export class SpeakerDetailsComponent implements OnInit {
   isWebShareAvailable = this.webShareService.isWebShareAvailable;
 
-  constructor(private webShareService: WebShareService) {}
+  constructor(private webShareService: WebShareService, private seoService: SeoService) {}
+
+  ngOnInit() {}
 
   onShareClick() {
     this.webShareService.share({
