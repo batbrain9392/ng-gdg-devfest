@@ -21,6 +21,20 @@
   }
 }
 
+.brand-logo-big {
+  max-height: 100px;
+  margin-bottom: 10px;
+}
+
+.brand-logo-small {
+  max-height: 24px;
+  margin-right: 7px;
+
+  &.hide {
+    display: none;
+  }
+}
+
 .spacer {
   flex: 1 1 auto;
 }

@@ -7,6 +7,11 @@
     [opened]="(isHandset$ | async) ? false : false"
   >
     <div class="sidenav-header">
+      <img
+        src="https://via.placeholder.com/100"
+        alt="logo"
+        class="brand-logo-big"
+      />
       <div class="mat-headline">MMM DDth, YYYY</div>
       <div class="mat-subheading-2">City, Country</div>
     </div>
@@ -39,7 +44,13 @@
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span class="custom-typography">BlrDroid</span>
+        <img
+          src="https://via.placeholder.com/24"
+          alt="logo"
+          class="brand-logo-small"
+          [class.hide]="isHandset$ | async"
+        />
+        <span class="brand-text">BlrDroid</span>
         <span class="spacer"></span>
         <ng-container *ngIf="!(isHandset$ | async)">
           <a
