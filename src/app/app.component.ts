@@ -1,12 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  OnInit,
-  OnDestroy
-} from '@angular/core';
-import { Router, RouterEvent, NavigationEnd } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { SubSink } from 'subsink';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import {
   ThemeService,
   ServiceWorkerService,
@@ -20,35 +12,23 @@ import { IRoute } from './shared/models';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   readonly isDarkTheme$ = this.themeService.isDarkTheme$;
   routes: IRoute[] = [];
-  private subs = new SubSink();
 
   constructor(
     private themeService: ThemeService,
     private serviceWorkerService: ServiceWorkerService,
-    private seoService: SeoService,
-    private router: Router
+    private seoService: SeoService
   ) {}
 
   ngOnInit() {
     this.serviceWorkerService.watchForUpdates();
-    this.createRoutes();
-    this.subs.sink = this.router.events
-      .pipe(
-        filter((event: RouterEvent) => event instanceof NavigationEnd),
-        map(navigationEndEvent => navigationEndEvent.url),
-        map(url => this.routes.find(route => route.path === url))
-      )
-      .subscribe(route => {
-        if (route) {
-          this.seo(route);
-        }
-      });
+    this.createMainRoutes();
+    this.seoService.seoForMainRoutes(this.routes);
   }
 
-  createRoutes() {
+  createMainRoutes() {
     this.routes = [
       {
         title: 'Home',
@@ -83,17 +63,5 @@ export class AppComponent implements OnInit, OnDestroy {
         imageUrl: 'https://via.placeholder.com/100'
       }
     ];
-  }
-
-  seo(route: IRoute) {
-    this.seoService.updateTitle(route.title);
-    this.seoService.updateUrl(route.path);
-    this.seoService.updateType(route.type);
-    this.seoService.updateDescription(route.description);
-    this.seoService.updateImageUrl(route.imageUrl);
-  }
-
-  ngOnDestroy() {
-    this.subs.unsubscribe();
   }
 }
