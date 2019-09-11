@@ -48,10 +48,7 @@ export class MaterialModule {
     domSanitizer: DomSanitizer,
     platformService: PlatformService
   ) {
-    const site = platformService.isBrowser
-      ? window.location.origin
-      : 'https://gdg-devfest-ng.web.app';
-    const url = `${site}/assets/fonts/mdi.svg`;
+    const url = `${platformService.url}/assets/fonts/mdi.svg`;
     matIconRegistry.addSvgIconSet(
       domSanitizer.bypassSecurityTrustResourceUrl(url)
     );
