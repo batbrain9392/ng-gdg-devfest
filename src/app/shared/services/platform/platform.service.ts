@@ -7,7 +7,7 @@ import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 export class PlatformService {
   readonly isBrowser = isPlatformBrowser(this.platform);
   readonly isServer = isPlatformServer(this.platform);
-  readonly url = this.isBrowser
+  readonly originUrl = this.isBrowser
     ? window.location.origin
     : 'https://gdg-devfest-ng.web.app';
 

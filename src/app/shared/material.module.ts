@@ -48,7 +48,7 @@ export class MaterialModule {
     domSanitizer: DomSanitizer,
     platformService: PlatformService
   ) {
-    const url = `${platformService.url}/assets/fonts/mdi.svg`;
+    const url = `${platformService.originUrl}/assets/fonts/mdi.svg`;
     matIconRegistry.addSvgIconSet(
       domSanitizer.bypassSecurityTrustResourceUrl(url)
     );

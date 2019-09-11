@@ -52,7 +52,7 @@ export class SeoService {
   updateUrl(route: string) {
     this.meta.updateTag({
       name: 'og:url',
-      content: `${this.platformService.url}${route}`
+      content: `${this.platformService.originUrl}${route}`
     });
   }
 
