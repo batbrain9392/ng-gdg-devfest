@@ -24,7 +24,7 @@
         routerLinkActive="router-link-active"
       >
         <mat-icon mat-list-icon>{{ route.icon }}</mat-icon>
-        <span mat-line>{{ route.label }}</span>
+        <span mat-line>{{ route.title }}</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -59,7 +59,7 @@
             [routerLink]="route.path"
             routerLinkActive="router-link-active"
           >
-            <span>{{ route.label }}</span>
+            <span>{{ route.title }}</span>
           </a>
         </ng-container>
         <button

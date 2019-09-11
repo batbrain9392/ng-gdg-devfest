@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { WebShareService, SeoService } from '../../../shared/services';
 
 @Component({
@@ -10,9 +11,24 @@ import { WebShareService, SeoService } from '../../../shared/services';
 export class SpeakerDetailsComponent implements OnInit {
   isWebShareAvailable = this.webShareService.isWebShareAvailable;
 
-  constructor(private webShareService: WebShareService, private seoService: SeoService) {}
+  constructor(
+    private webShareService: WebShareService,
+    private seoService: SeoService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.seo();
+  }
+
+  seo() {
+    console.log();
+    this.seoService.updateTitle('Name Surname');
+    this.seoService.updateUrl(this.router.url);
+    this.seoService.updateType('profile:username');
+    this.seoService.updateDescription('Profession | Profession | Hobby');
+    this.seoService.updateImageUrl('https://via.placeholder.com/256');
+  }
 
   onShareClick() {
     this.webShareService.share({

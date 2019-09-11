@@ -6,6 +6,8 @@ import { PlatformService } from '../platform/platform.service';
   providedIn: 'root'
 })
 export class SeoService {
+  private readonly appName = 'GDG Devfest';
+
   constructor(
     private title: Title,
     private meta: Meta,
@@ -13,6 +15,7 @@ export class SeoService {
   ) {}
 
   updateTitle(title: string) {
+    title = `${this.appName} | ${title}`;
     this.title.setTitle(title);
     this.meta.updateTag({
       name: 'og:title',
@@ -53,7 +56,7 @@ export class SeoService {
     });
   }
 
-  updateImage(imageUrl: string) {
+  updateImageUrl(imageUrl: string) {
     this.meta.updateTag({
       name: 'og:image',
       content: imageUrl
