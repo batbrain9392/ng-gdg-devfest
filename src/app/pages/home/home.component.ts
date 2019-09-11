@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SeoService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   isVideoLoaded: boolean;
   mapUrl =
     'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14735.93107' +
@@ -16,7 +18,19 @@ export class HomeComponent {
   videoUrl1 = 'https://www.youtube.com/embed/6wgYj77ktMw';
   videoUrl2 = 'https://www.youtube.com/embed/cWdKPhf6WVA';
 
-  constructor() {}
+  constructor(private seoService: SeoService, private router: Router) {}
+
+  ngOnInit() {
+    this.seo();
+  }
+
+  seo() {
+    this.seoService.updateTitle('Home');
+    this.seoService.updateUrl(this.router.url);
+    this.seoService.updateType('website');
+    this.seoService.updateDescription('Description of event');
+    this.seoService.updateImageUrl('https://via.placeholder.com/100');
+  }
 
   onVideoLoad() {
     this.isVideoLoaded = true;

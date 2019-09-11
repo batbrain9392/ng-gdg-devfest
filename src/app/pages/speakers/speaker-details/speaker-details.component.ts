@@ -22,7 +22,6 @@ export class SpeakerDetailsComponent implements OnInit {
   }
 
   seo() {
-    console.log();
     this.seoService.updateTitle('Name Surname');
     this.seoService.updateUrl(this.router.url);
     this.seoService.updateType('profile:username');
