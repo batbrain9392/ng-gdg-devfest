@@ -24,6 +24,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
       </button>
     </div>
   `,
+  styles: [`
+    [mat-dialog-content] {
+      max-width: 450px;
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UpdateAppComponent {}
