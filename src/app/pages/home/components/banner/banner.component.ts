@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-event-introduction',
-  templateUrl: './event-introduction.component.html',
-  styleUrls: ['./event-introduction.component.scss', '../home.shared.scss'],
+  selector: 'app-banner',
+  templateUrl: './banner.component.html',
+  styleUrls: ['./banner.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EventIntroductionComponent {
+export class BannerComponent {
   loadResource: boolean;
   isResourceLoaded: boolean;
 

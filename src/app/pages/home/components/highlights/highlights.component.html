@@ -14,18 +14,32 @@
     >.
     <div class="grid">
       <app-placeholder (appDeferLoad)="onViewed(1)">
-        <img
-          src="https://via.placeholder.com/600x300"
-          alt="image"
+        <app-placeholder-spinner
+          *ngIf="!isResourceLoaded1"
+        ></app-placeholder-spinner>
+        <iframe
+          title="Youtube video"
+          [src]="urlSafe1"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          (load)="onResourceLoad(1)"
           *ngIf="loadResource1"
-        />
+        >
+        </iframe>
       </app-placeholder>
       <app-placeholder (appDeferLoad)="onViewed(2)">
-        <img
-          src="https://via.placeholder.com/600x300"
-          alt="image"
+        <app-placeholder-spinner
+          *ngIf="!isResourceLoaded2"
+        ></app-placeholder-spinner>
+        <iframe
+          title="Youtube video"
+          [src]="urlSafe2"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          (load)="onResourceLoad(2)"
           *ngIf="loadResource2"
-        />
+        >
+        </iframe>
       </app-placeholder>
     </div>
   </div>

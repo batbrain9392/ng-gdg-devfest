@@ -1,11 +1,41 @@
-<section class="white" (appDeferLoad)="onViewed()">
-  <app-placeholder-spinner *ngIf="!isResourceLoaded"></app-placeholder-spinner>
-  <iframe
-    title="Google map"
-    [src]="urlSafe"
-    allowfullscreen
-    (load)="onResourceLoad()"
-    *ngIf="loadResource"
-  ></iframe>
+<section>
+  <div class="container">
+    <div>
+      <app-header-fragment fragment="location">
+        <h1>Location</h1>
+      </app-header-fragment>
+      <div>
+        <p>
+          BlrDroid 2019 shall take place at venue, address. Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Nobis vel ipsa assumenda
+          repellat repudiandae illum iusto laboriosam natus, voluptas, iure
+          exercitationem necessitatibus magnam eveniet molestias ipsam, velit
+          ipsum fugiat modi. Nobis vel ipsa assumenda repellat repudiandae illum
+          iusto laboriosam natus, voluptas, iure exercitationem necessitatibus
+          magnam eveniet molestias ipsam, velit ipsum fugiat modi.
+        </p>
+        <a
+          mat-stroked-button
+          color="primary"
+          href="http://novotelkolkata.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VISIT WEBSITE
+        </a>
+      </div>
+    </div>
+    <div class="map mat-elevation-z2" (appDeferLoad)="onViewed()">
+      <app-placeholder-spinner
+        *ngIf="!isResourceLoaded"
+      ></app-placeholder-spinner>
+      <iframe
+        title="Google map"
+        [src]="urlSafe"
+        allowfullscreen
+        (load)="onResourceLoad()"
+        *ngIf="loadResource"
+      ></iframe>
+    </div>
+  </div>
 </section>
-<mat-divider></mat-divider>

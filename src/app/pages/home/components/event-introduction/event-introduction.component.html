@@ -29,18 +29,11 @@
       </div>
     </div>
     <app-placeholder (appDeferLoad)="onViewed()">
-      <app-placeholder-spinner
-        *ngIf="!isResourceLoaded"
-      ></app-placeholder-spinner>
-      <iframe
-        title="Youtube video"
-        [src]="urlSafe"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        (load)="onResourceLoad()"
+      <img
+        src="https://via.placeholder.com/600x300"
+        alt="image"
         *ngIf="loadResource"
-      >
-      </iframe>
+      />
     </app-placeholder>
   </div>
 </section>

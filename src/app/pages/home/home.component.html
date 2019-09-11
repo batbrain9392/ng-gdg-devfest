@@ -1,10 +1,15 @@
-<app-map [url]="mapUrl"></app-map>
+<app-banner id="banner"></app-banner>
 <div class="master-grid">
-  <app-event-introduction id="eventIntroduction" [url]="videoUrl"></app-event-introduction>
+  <app-event-introduction id="eventIntroduction"></app-event-introduction>
   <app-event-description id="eventDescription"></app-event-description>
   <app-event-types id="eventTypes"></app-event-types>
-  <app-highlights id="highlights"></app-highlights>
+  <app-highlights
+    id="highlights"
+    [url1]="videoUrl1"
+    [url2]="videoUrl2"
+  ></app-highlights>
   <app-story id="story"></app-story>
   <app-team-introduction id="teamIntroduction"></app-team-introduction>
   <app-partners id="partners"></app-partners>
+  <app-map id="location" [url]="mapUrl"></app-map>
 </div>
