@@ -45,7 +45,7 @@ export class NavComponent {
     this.webShareService.share({
       title: this.title.getTitle(),
       text: this.meta.getTag('name=description').content,
-      url: window.location.origin
+      url: window.location.href
     });
   }
 
