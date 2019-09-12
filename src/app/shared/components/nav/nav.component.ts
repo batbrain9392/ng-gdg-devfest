@@ -40,8 +40,6 @@ export class NavComponent {
 
   onShareClick() {
     this.webShareService.share({
-      title: '',
-      text: '',
       url: window.location.href
     });
   }
