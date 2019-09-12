@@ -28,12 +28,4 @@ export class SpeakerDetailsComponent implements OnInit {
     this.seoService.updateDescription('Profession | Profession | Hobby');
     this.seoService.updateImageUrl('https://via.placeholder.com/256');
   }
-
-  onShareClick() {
-    this.webShareService.share({
-      title: 'Name Surname',
-      text: 'Name Surname | Speaker',
-      url: 'https://gdg-devfest-ng.herokuapp.com/speakers/id'
-    });
-  }
 }

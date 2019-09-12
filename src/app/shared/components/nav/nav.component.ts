@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -36,15 +35,13 @@ export class NavComponent {
     private themeService: ThemeService,
     private serviceWorkerService: ServiceWorkerService,
     private webShareService: WebShareService,
-    private offlineService: OfflineService,
-    private title: Title,
-    private meta: Meta
+    private offlineService: OfflineService
   ) {}
 
   onShareClick() {
     this.webShareService.share({
-      title: this.title.getTitle(),
-      text: this.meta.getTag('name=description').content,
+      title: '',
+      text: '',
       url: window.location.href
     });
   }
