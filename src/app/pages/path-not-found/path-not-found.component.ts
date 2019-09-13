@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-path-not-found',
@@ -6,11 +6,4 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./path-not-found.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PathNotFoundComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class PathNotFoundComponent {}
