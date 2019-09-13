@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map, shareReplay, mapTo } from 'rxjs/operators';
 import {
   ThemeService,
   ServiceWorkerService,
@@ -18,12 +17,11 @@ import { IRoute } from '../../models';
 })
 export class NavComponent {
   @Input() routes: IRoute[];
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  isNotHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+    map(result => result.matches),
+    map(isHandset => !isHandset),
+    shareReplay()
+  );
   isDarkTheme$ = this.themeService.isDarkTheme$;
   isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
   isUpdating$ = this.serviceWorkerService.isUpdating$;
