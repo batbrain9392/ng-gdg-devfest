@@ -1,28 +1,21 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { map, shareReplay, tap } from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
 import {
   ThemeService,
   ServiceWorkerService,
   WebShareService,
-  OfflineService
+  OfflineService,
+  DeviceService
 } from '../../services';
 import { IRoute } from '../../models';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
   @Input() readonly routes: IRoute[];
-  isHandset = true;
-  readonly isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(result => result.matches),
-    tap(isHandset => this.isHandset = isHandset),
-    shareReplay()
-  );
+  readonly isHandset$ = this.deviceService.isHandset$;
   readonly isDarkTheme$ = this.themeService.isDarkTheme$;
   readonly isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
   readonly isUpdating$ = this.serviceWorkerService.isUpdating$;
@@ -30,11 +23,11 @@ export class NavComponent {
   readonly isOffline$ = this.offlineService.isOffline$;
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
     private themeService: ThemeService,
     private serviceWorkerService: ServiceWorkerService,
     private webShareService: WebShareService,
-    private offlineService: OfflineService
+    private offlineService: OfflineService,
+    private deviceService: DeviceService
   ) {}
 
   onShareClick() {

@@ -40,7 +40,7 @@
           (click)="drawer.toggle()"
           matTooltip="Toggle menu"
           aria-label="Toggle menu"
-          *ngIf="isHandset"
+          *ngIf="isHandset$ | async"
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
@@ -48,12 +48,11 @@
           src="https://via.placeholder.com/24"
           alt="logo"
           class="brand-logo-small"
-          [class.hide]="isHandset"
+          [class.hide]="isHandset$ | async"
         />
         <span class="brand-text">BlrDroid</span>
-        .{{ isHandset }}.
         <span class="spacer"></span>
-        <ng-container *ngIf="!isHandset">
+        <ng-container *ngIf="!(isHandset$ | async)">
           <a
             mat-button
             *ngFor="let route of routes"
