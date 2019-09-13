@@ -5,7 +5,8 @@ import {
   ScheduleComponent,
   SpeakerDetailsComponent,
   SpeakerListComponent,
-  TeamComponent
+  TeamComponent,
+  PathNotFoundComponent
 } from './pages';
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'speakers/:id', component: SpeakerDetailsComponent },
   { path: 'speakers', component: SpeakerListComponent },
   { path: 'team', component: TeamComponent },
-  { path: '', pathMatch: 'full', redirectTo: '/home' }
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: '**', component: PathNotFoundComponent }
 ];
 
 @NgModule({
