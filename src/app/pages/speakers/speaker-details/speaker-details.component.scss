@@ -2,13 +2,15 @@
   display: grid;
   $gap: 32px;
   grid-gap: $gap;
-  padding: $gap / 2 0;
+  padding-top: $gap / 2;
+  padding-bottom: $gap / 2;
 
   @media (min-width: 600px) {
     grid-template-columns: 6fr 9fr;
     $gap: 64px;
     grid-gap: $gap;
-    padding: $gap 0;
+    padding-top: $gap;
+    padding-bottom: $gap;
   }
 }
 
