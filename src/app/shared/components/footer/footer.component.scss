@@ -30,6 +30,7 @@ h3 {
   & > div {
     display: grid;
     align-content: start;
+    grid-row-gap: 4px;
   }
 
   h3 {

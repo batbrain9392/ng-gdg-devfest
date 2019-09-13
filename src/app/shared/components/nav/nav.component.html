@@ -4,7 +4,7 @@
     class="sidenav"
     fixedInViewport
     mode="over"
-    [opened]="(isNotHandset$ | async) ? false : false"
+    [opened]="(isHandset$ | async) ? false : false"
   >
     <div class="sidenav-header">
       <img
@@ -40,7 +40,7 @@
           (click)="drawer.toggle()"
           matTooltip="Toggle menu"
           aria-label="Toggle menu"
-          *ngIf="!(isNotHandset$ | async)"
+          *ngIf="isHandset"
         >
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
@@ -48,12 +48,12 @@
           src="https://via.placeholder.com/24"
           alt="logo"
           class="brand-logo-small"
-          [class.hide]="!(isNotHandset$ | async)"
+          [class.hide]="isHandset"
         />
         <span class="brand-text">BlrDroid</span>
-        .{{ isNotHandset$ | async }}.
+        .{{ isHandset }}.
         <span class="spacer"></span>
-        <ng-container *ngIf="isNotHandset$ | async">
+        <ng-container *ngIf="!isHandset">
           <a
             mat-button
             *ngFor="let route of routes"

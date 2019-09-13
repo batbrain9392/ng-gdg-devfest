@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { map, shareReplay, mapTo } from 'rxjs/operators';
+import { map, shareReplay, tap } from 'rxjs/operators';
 import {
   ThemeService,
   ServiceWorkerService,
@@ -16,17 +16,18 @@ import { IRoute } from '../../models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavComponent {
-  @Input() routes: IRoute[];
-  isNotHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  @Input() readonly routes: IRoute[];
+  isHandset = true;
+  readonly isHandset$ = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(result => result.matches),
-    map(isHandset => !isHandset),
+    tap(isHandset => this.isHandset = isHandset),
     shareReplay()
   );
-  isDarkTheme$ = this.themeService.isDarkTheme$;
-  isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
-  isUpdating$ = this.serviceWorkerService.isUpdating$;
-  isWebShareAvailable = this.webShareService.isWebShareAvailable;
-  isOffline$ = this.offlineService.isOffline$;
+  readonly isDarkTheme$ = this.themeService.isDarkTheme$;
+  readonly isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
+  readonly isUpdating$ = this.serviceWorkerService.isUpdating$;
+  readonly isWebShareAvailable = this.webShareService.isWebShareAvailable;
+  readonly isOffline$ = this.offlineService.isOffline$;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
