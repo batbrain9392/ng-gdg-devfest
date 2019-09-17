@@ -1,9 +1,24 @@
+mat-sidenav-container {
+  min-height: 100%;
+  height: auto;
+}
+
+mat-sidenav-content,
+mat-sidenav {
+  padding-top: 56px;
+
+  @media (min-width: 600px) {
+    padding-top: 64px;
+  }
+}
+
 .sidenav {
   width: 250px;
 }
 
 .sidenav-header {
   padding: 22px;
+
   [class^='mat-'] {
     margin: 0;
   }
@@ -46,21 +61,6 @@
   margin-right: 8px;
 }
 
-main {
-  @mixin offset-top($gap) {
-    min-height: calc(100vh - #{$gap});
-    margin-top: $gap;
-  }
-  @include offset-top(56px);
-  @media (min-width: 600px) {
-    @include offset-top(64px);
-  }
-  display: grid;
-  grid-template-rows: auto max-content;
-  grid-row-gap: 64px;
-  box-sizing: border-box;
-}
-
 .p-0 {
   padding: 0;
 }
@@ -79,4 +79,8 @@ main {
 
 .offline {
   color: #bdbdbd;
+}
+
+app-footer {
+  margin-top: 64px;
 }
