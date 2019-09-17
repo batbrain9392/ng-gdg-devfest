@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   createMainRoutes() {
     this.routes = [
       { title: 'Home', path: '/home', icon: 'home' },
-      { title: 'Schedule', path: '/schedule', icon: 'event' },
+      { title: 'Sessions', path: '/sessions', icon: 'event' },
       { title: 'Speakers', path: '/speakers', icon: 'mic' },
       { title: 'Team', path: '/team', icon: 'supervisor_account' }
     ];

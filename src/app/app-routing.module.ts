@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {
   HomeComponent,
-  ScheduleComponent,
+  SessionDetailsComponent,
+  SessionListComponent,
   SpeakerDetailsComponent,
   SpeakerListComponent,
   TeamComponent,
@@ -11,7 +12,8 @@ import {
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'schedule', component: ScheduleComponent },
+  { path: 'sessions/:id', component: SessionDetailsComponent },
+  { path: 'sessions', component: SessionListComponent },
   { path: 'speakers/:id', component: SpeakerDetailsComponent },
   { path: 'speakers', component: SpeakerListComponent },
   { path: 'team', component: TeamComponent },
