@@ -56,6 +56,7 @@
         <ng-container *ngIf="!(isHandset$ | async)">
           <a
             mat-button
+            class="router-link"
             *ngFor="let route of routes"
             [routerLink]="route.path"
             routerLinkActive="router-link-active"

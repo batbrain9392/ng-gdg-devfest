@@ -8,7 +8,7 @@
   background-color: white !important;
 }
 
-a:not([class^='mat-']):not([class*='fragment-icon']) {
+a:not([class*='mat-']):not([class*='fragment-icon']) {
   color: $primary;
 }
 
@@ -29,7 +29,7 @@ a:not([class^='mat-']):not([class*='fragment-icon']) {
     background: #424242 !important;
   }
 
-  a:not([class^='mat-']):not([class*='fragment-icon']) {
+  a:not([class*='mat-']):not([class*='fragment-icon']) {
     color: $accent;
   }
 

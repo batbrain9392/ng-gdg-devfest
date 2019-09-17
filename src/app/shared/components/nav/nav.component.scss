@@ -42,6 +42,10 @@
   flex: 1 1 auto;
 }
 
+.router-link:last-of-type {
+  margin-right: 8px;
+}
+
 main {
   @mixin offset-top($gap) {
     min-height: calc(100vh - #{$gap});
