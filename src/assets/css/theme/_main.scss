@@ -4,14 +4,15 @@
 // Typography //
 //************//
 
-$font-major: '"Product Sans", sans-serif';
+$font-major: '"Google Sans", Arial, sans-serif';
 $custom-typography: mat-typography-config(
   $display-4: mat-typography-level(112px, 112px, 300, $font-major),
   $display-3: mat-typography-level(56px, 56px, 400, $font-major),
   $display-2: mat-typography-level(45px, 48px, 400, $font-major),
   $display-1: mat-typography-level(34px, 40px, 400, $font-major),
   $headline: mat-typography-level(24px, 32px, 400, $font-major),
-  $title: mat-typography-level(20px, 32px, 400, $font-major)
+  $title: mat-typography-level(20px, 32px, 500, $font-major),
+  $button: mat-typography-level(14px, 14px, 500, $font-major)
 );
 @include mat-core($custom-typography);
 
