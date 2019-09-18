@@ -62,7 +62,13 @@
       aria-label="Notifications"
       routerLink="/notifications"
     >
-      <mat-icon>notifications</mat-icon>
+      <mat-icon
+        [matBadge]="notificationCount$ | async"
+        matBadgeColor="warn"
+        [matBadgeHidden]="!(notificationCount$ | async)"
+      >
+        notifications
+      </mat-icon>
     </a>
     <ng-container *ngIf="!(isOffline$ | async) && (isUpdateAvailable$ | async)">
       <button

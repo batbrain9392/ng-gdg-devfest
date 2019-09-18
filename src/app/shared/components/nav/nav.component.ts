@@ -19,6 +19,7 @@ export class NavComponent {
   readonly isDarkTheme$ = this.themeService.isDarkTheme$;
   readonly isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
   readonly isUpdating$ = this.serviceWorkerService.isUpdating$;
+  readonly notificationCount$ = this.serviceWorkerService.notificationCount$;
   readonly isWebShareAvailable = this.webShareService.isWebShareAvailable;
   readonly isOffline$ = this.offlineService.isOffline$;
 

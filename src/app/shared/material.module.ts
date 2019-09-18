@@ -14,7 +14,8 @@ import {
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
   MatSnackBarConfig,
   MatDialogModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatBadgeModule
 } from '@angular/material';
 import { PlatformService } from './services';
 
@@ -30,7 +31,8 @@ import { PlatformService } from './services';
     MatCardModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBadgeModule
   ],
   providers: [
     {
