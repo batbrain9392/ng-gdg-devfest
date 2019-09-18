@@ -7,6 +7,8 @@ import {
   SpeakerDetailsComponent,
   SpeakerListComponent,
   TeamComponent,
+  NotificationDetailsComponent,
+  NotificationListComponent,
   PathNotFoundComponent
 } from './pages';
 
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'speakers/:id', component: SpeakerDetailsComponent },
   { path: 'speakers', component: SpeakerListComponent },
   { path: 'team', component: TeamComponent },
+  { path: 'notifications/:id', component: NotificationDetailsComponent },
+  { path: 'notifications', component: NotificationListComponent },
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: '**', component: PathNotFoundComponent }
 ];

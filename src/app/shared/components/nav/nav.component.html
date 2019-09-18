@@ -46,23 +46,25 @@
       mat-icon-button
       (click)="toggleDarkTheme()"
       [matTooltip]="
-        'Switch to ' +
-        ((isDarkTheme$ | async) ? 'light' : 'dark') +
-        ' theme'
+        'Switch to ' + ((isDarkTheme$ | async) ? 'light' : 'dark') + ' theme'
       "
       [attr.aria-label]="
-        'Switch to ' +
-        ((isDarkTheme$ | async) ? 'light' : 'dark') +
-        ' theme'
+        'Switch to ' + ((isDarkTheme$ | async) ? 'light' : 'dark') + ' theme'
       "
     >
       <mat-icon>
         {{ (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay' }}
       </mat-icon>
     </button>
-    <ng-container
-      *ngIf="!(isOffline$ | async) && (isUpdateAvailable$ | async)"
+    <a
+      mat-icon-button
+      matTooltip="Notifications"
+      aria-label="Notifications"
+      routerLink="/notifications"
     >
+      <mat-icon>notifications</mat-icon>
+    </a>
+    <ng-container *ngIf="!(isOffline$ | async) && (isUpdateAvailable$ | async)">
       <button
         mat-icon-button
         (click)="updateApp()"
