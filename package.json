@@ -14,7 +14,9 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run gdg-devfest-ng:server:production"
+    "build:client-and-server-bundles": "ng build --prod && ng run gdg-devfest-ng:server:production",
+    "ssr:dev": "npm run build:ssr && npm run serve",
+    "ssr:prod": "npm run build:ssr && npm run serve:ssr"
   },
   "private": true,
   "dependencies": {
