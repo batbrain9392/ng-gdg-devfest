@@ -99,8 +99,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
+              "src/robots.txt",
               "src/assets",
-              "firebase-messaging-sw.js",
               "src/manifest.webmanifest"
             ],
             "styles": [
