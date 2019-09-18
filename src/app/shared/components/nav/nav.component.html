@@ -21,6 +21,27 @@
       [class.hide]="isHandset$ | async"
     />
     <span class="brand-text">BlrDroid</span>
+    <ng-container *ngIf="!(isOffline$ | async) && (isUpdateAvailable$ | async)">
+      <button
+        mat-icon-button
+        (click)="updateApp()"
+        matTooltip="Update app"
+        aria-label="Update app"
+        *ngIf="!(isUpdating$ | async)"
+      >
+        <mat-icon class="animated infinite heartBeat delay-3s slower">
+          system_update
+        </mat-icon>
+      </button>
+      <div
+        class="icon-container white-spinner"
+        matTooltip="Updating app"
+        aria-label="Updating app"
+        *ngIf="isUpdating$ | async"
+      >
+        <mat-spinner diameter="20" strokeWidth="10"></mat-spinner>
+      </div>
+    </ng-container>
     <span class="spacer"></span>
     <ng-container *ngIf="!(isHandset$ | async)">
       <a
@@ -56,7 +77,7 @@
         {{ (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay' }}
       </mat-icon>
     </button>
-    <a
+    <!-- <a
       mat-icon-button
       matTooltip="Notifications"
       aria-label="Notifications"
@@ -69,28 +90,7 @@
       >
         notifications
       </mat-icon>
-    </a>
-    <ng-container *ngIf="!(isOffline$ | async) && (isUpdateAvailable$ | async)">
-      <button
-        mat-icon-button
-        (click)="updateApp()"
-        matTooltip="Update app"
-        aria-label="Update app"
-        *ngIf="!(isUpdating$ | async)"
-      >
-        <mat-icon class="animated infinite heartBeat delay-3s slower">
-          system_update
-        </mat-icon>
-      </button>
-      <div
-        class="icon-container white-spinner"
-        matTooltip="Updating app"
-        aria-label="Updating app"
-        *ngIf="isUpdating$ | async"
-      >
-        <mat-spinner diameter="20" strokeWidth="10"></mat-spinner>
-      </div>
-    </ng-container>
+    </a> -->
   </div>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">

@@ -1,5 +1,9 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { ThemeService, ServiceWorkerService } from './shared/services';
+import {
+  ThemeService,
+  ServiceWorkerService,
+  NotificationService
+} from './shared/services';
 import { IRoute } from './shared/models';
 
 @Component({
@@ -14,12 +18,14 @@ export class AppComponent implements OnInit {
 
   constructor(
     private themeService: ThemeService,
-    private serviceWorkerService: ServiceWorkerService
+    private serviceWorkerService: ServiceWorkerService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit() {
     this.createMainRoutes();
     this.serviceWorkerService.init();
+    this.notificationService.init();
   }
 
   createMainRoutes() {

@@ -24,22 +24,22 @@ export class ServiceWorkerService {
   );
   private readonly isUpdating = new Subject<boolean>();
   readonly isUpdating$ = this.isUpdating.asObservable().pipe(shareReplay());
-  private readonly notificationsRoute$ = this.router.events.pipe(
-    filter((event: Event) => event instanceof NavigationEnd),
-    filter(
-      (event: NavigationEnd) => event.urlAfterRedirects === '/notifications'
-    )
-  );
-  private readonly reset = new Subject<void>();
-  private readonly isReset$ = merge(
-    this.reset.asObservable(),
-    this.notificationsRoute$
-  ).pipe(mapTo(0));
-  private readonly isIncrement$ = this.swPush.messages.pipe(mapTo(1));
-  readonly notificationCount$ = merge(this.isIncrement$, this.isReset$).pipe(
-    scan((acc, isIncrement) => (isIncrement ? acc + 1 : 0), 0),
-    shareReplay()
-  );
+  // private readonly notificationsRoute$ = this.router.events.pipe(
+  //   filter((event: Event) => event instanceof NavigationEnd),
+  //   filter(
+  //     (event: NavigationEnd) => event.urlAfterRedirects === '/notifications'
+  //   )
+  // );
+  // private readonly reset = new Subject<void>();
+  // private readonly isReset$ = merge(
+  //   this.reset.asObservable(),
+  //   this.notificationsRoute$
+  // ).pipe(mapTo(0));
+  // private readonly isIncrement$ = this.swPush.messages.pipe(mapTo(1));
+  // readonly notificationCount$ = merge(this.isIncrement$, this.isReset$).pipe(
+  //   scan((acc, isIncrement) => (isIncrement ? acc + 1 : 0), 0),
+  //   shareReplay()
+  // );
 
   constructor(
     private applicationRef: ApplicationRef,
@@ -58,7 +58,7 @@ export class ServiceWorkerService {
     const everyHourOnceAppIsStable$ = concat(appIsStable$, everyHour$);
     everyHourOnceAppIsStable$.subscribe(() => {
       this.checkForUpdate();
-      this.getNotificationPermission();
+      // this.getNotificationPermission();
     });
     this.watchUpdate();
   }
@@ -84,14 +84,14 @@ export class ServiceWorkerService {
     }
   }
 
-  private async getNotificationPermission() {
-    if (this.swPush.isEnabled) {
-      const pushSubscription = await this.swPush.requestSubscription({
-        serverPublicKey: environment.serverPublicKey
-      });
-      console.log(pushSubscription.toJSON());
-    }
-  }
+  // private async getNotificationPermission() {
+  //   if (this.swPush.isEnabled) {
+  //     const pushSubscription = await this.swPush.requestSubscription({
+  //       serverPublicKey: environment.serverPublicKey
+  //     });
+  //     console.log(pushSubscription.toJSON());
+  //   }
+  // }
 
   updateApp() {
     this.dialog
@@ -110,7 +110,7 @@ export class ServiceWorkerService {
       });
   }
 
-  markNotificationsAsRead() {
-    this.reset.next();
-  }
+  // markNotificationsAsRead() {
+  //   this.reset.next();
+  // }
 }
