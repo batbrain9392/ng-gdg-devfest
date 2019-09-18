@@ -1,7 +1,5 @@
 export const environment = {
   production: false,
-  serverPublicKey:
-    'BLroLijp7ak09yW3i92o0SGtJzqKECQ3lSXxlOnxmLDhBGOOKMfGGycSQ3MguddlPoJP3ngBx1cW_bvtaURPbg8',
   firebaseConfig: {
     apiKey: 'AIzaSyBEaRIARHn8pck86z61t7XtYnYHlcJWa6g',
     authDomain: 'gdg-devfest-ng.firebaseapp.com',

@@ -1,19 +1,9 @@
 import { ApplicationRef, Injectable } from '@angular/core';
-import { Router, Event, NavigationEnd } from '@angular/router';
-import { SwUpdate, SwPush } from '@angular/service-worker';
+import { SwUpdate } from '@angular/service-worker';
 import { MatSnackBar, MatDialog } from '@angular/material';
-import { interval, concat, Subject, merge } from 'rxjs';
-import {
-  first,
-  map,
-  shareReplay,
-  mapTo,
-  tap,
-  scan,
-  filter
-} from 'rxjs/operators';
+import { interval, concat, Subject } from 'rxjs';
+import { first, map, shareReplay } from 'rxjs/operators';
 import { UpdateAppComponent } from '../../components/dialogs';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,30 +14,12 @@ export class ServiceWorkerService {
   );
   private readonly isUpdating = new Subject<boolean>();
   readonly isUpdating$ = this.isUpdating.asObservable().pipe(shareReplay());
-  // private readonly notificationsRoute$ = this.router.events.pipe(
-  //   filter((event: Event) => event instanceof NavigationEnd),
-  //   filter(
-  //     (event: NavigationEnd) => event.urlAfterRedirects === '/notifications'
-  //   )
-  // );
-  // private readonly reset = new Subject<void>();
-  // private readonly isReset$ = merge(
-  //   this.reset.asObservable(),
-  //   this.notificationsRoute$
-  // ).pipe(mapTo(0));
-  // private readonly isIncrement$ = this.swPush.messages.pipe(mapTo(1));
-  // readonly notificationCount$ = merge(this.isIncrement$, this.isReset$).pipe(
-  //   scan((acc, isIncrement) => (isIncrement ? acc + 1 : 0), 0),
-  //   shareReplay()
-  // );
 
   constructor(
     private applicationRef: ApplicationRef,
     private swUpdate: SwUpdate,
-    private swPush: SwPush,
     private matSnackBar: MatSnackBar,
-    private dialog: MatDialog,
-    private router: Router
+    private dialog: MatDialog
   ) {}
 
   init() {
@@ -58,7 +30,6 @@ export class ServiceWorkerService {
     const everyHourOnceAppIsStable$ = concat(appIsStable$, everyHour$);
     everyHourOnceAppIsStable$.subscribe(() => {
       this.checkForUpdate();
-      // this.getNotificationPermission();
     });
     this.watchUpdate();
   }
@@ -84,15 +55,6 @@ export class ServiceWorkerService {
     }
   }
 
-  // private async getNotificationPermission() {
-  //   if (this.swPush.isEnabled) {
-  //     const pushSubscription = await this.swPush.requestSubscription({
-  //       serverPublicKey: environment.serverPublicKey
-  //     });
-  //     console.log(pushSubscription.toJSON());
-  //   }
-  // }
-
   updateApp() {
     this.dialog
       .open(UpdateAppComponent)
@@ -109,8 +71,4 @@ export class ServiceWorkerService {
         }
       });
   }
-
-  // markNotificationsAsRead() {
-  //   this.reset.next();
-  // }
 }
