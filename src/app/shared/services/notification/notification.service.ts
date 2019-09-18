@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { tap, switchMapTo } from 'rxjs/operators';
+import { tap, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +15,18 @@ export class NotificationService {
   ) {}
 
   init() {
-    this.getPermission();
-    this.watchMessages();
+    this.getPermission().then(() => this.watchMessages());
   }
 
   private getPermission() {
-    this.afMessaging.requestToken
-      .pipe(
-        tap(token => (this.token = token)),
-        switchMapTo(this.sub())
-      )
-      .subscribe();
+    return this.afMessaging.requestToken
+      .pipe(take(1))
+      .toPromise()
+      .then(token => {
+        this.token = token;
+        this.sub();
+      })
+      .catch(console.log);
   }
 
   private watchMessages() {
@@ -36,12 +37,5 @@ export class NotificationService {
     return this.afFunctions
       .httpsCallable('subscribeToTopic')({ token: this.token })
       .pipe(tap(_ => console.log('Subscribed to messages')));
-  }
-
-  private unsub() {
-    this.afFunctions
-      .httpsCallable('unsubscribeFromTopic')({ token: this.token })
-      .pipe(tap(_ => console.log('Unsubscribed from messages')))
-      .subscribe();
   }
 }

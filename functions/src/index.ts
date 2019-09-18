@@ -19,25 +19,29 @@ export const sendOnFirestoreCreate = functions.firestore
   .document('messages/{messageId}')
   .onCreate(async snapshot => {
     const message = snapshot.data();
-    const notification: admin.messaging.Notification = {
-      title: 'New Message Available!',
-      body: message.headline
-    };
-    const payload: admin.messaging.Message = {
-      notification,
-      webpush: {
-        notification: {
-          vibrate: [200, 100, 200],
-          icon: 'https://angular.io/generated/images/marketing/concept-icons/pwa.svg',
-          actions: [
-            {
-              action: 'view',
-              title: 'VIEW'
-            }
-          ]
-        }
-      },
-      topic: 'messages'
-    };
-    return admin.messaging().send(payload);
+    if (message) {
+      const notification: admin.messaging.Notification = {
+        title: 'New Message Available!',
+        body: message.headline
+      };
+      const payload: admin.messaging.Message = {
+        notification,
+        webpush: {
+          notification: {
+            vibrate: [200, 100, 200],
+            icon:
+              'https://angular.io/generated/images/marketing/concept-icons/pwa.svg',
+            actions: [
+              {
+                action: 'view',
+                title: 'VIEW'
+              }
+            ]
+          }
+        },
+        topic: 'messages'
+      };
+      return admin.messaging().send(payload);
+    }
+    return;
   });
