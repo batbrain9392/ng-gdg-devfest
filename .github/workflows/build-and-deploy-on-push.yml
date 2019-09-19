@@ -12,8 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install functions dependencies
-        run: cd functions && npm install && cd ..
-
+        run: cd functions && npm install
       - name: Deploy functions to firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
