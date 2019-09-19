@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFireFunctions } from '@angular/fire/functions';
-import { tap, take } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
+import { tap, take, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
-  private token: string;
-
   constructor(
     private afMessaging: AngularFireMessaging,
     private afFunctions: AngularFireFunctions
@@ -18,24 +17,25 @@ export class NotificationService {
     this.getPermission().then(() => this.watchMessages());
   }
 
-  private getPermission() {
-    return this.afMessaging.requestToken
-      .pipe(take(1))
-      .toPromise()
-      .then(token => {
-        this.token = token;
-        this.sub();
-      })
-      .catch(console.log);
+  private async getPermission() {
+    const token = await this.afMessaging.requestToken.pipe(take(1)).toPromise();
+    console.log({ token });
+    this.sub(token).subscribe();
   }
 
   private watchMessages() {
     this.afMessaging.messages.pipe(tap(console.log)).subscribe();
   }
 
-  private sub() {
+  private sub(token: string) {
     return this.afFunctions
-      .httpsCallable('subscribeToTopic')({ token: this.token })
-      .pipe(tap(_ => console.log('Subscribed to messages')));
+      .httpsCallable('subscribeToTopic')({ token })
+      .pipe(
+        tap(_ => console.log('Subscribed to messages')),
+        catchError(err => {
+          console.log(err);
+          return EMPTY;
+        })
+      );
   }
 }
