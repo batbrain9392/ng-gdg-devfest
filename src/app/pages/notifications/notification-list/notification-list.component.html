@@ -1,1 +1,31 @@
-<p>notification-list works!</p>
+<div class="container">
+  <div class="header">
+    <h1>Notifications</h1>
+    <div class="actions">
+      <button
+        mat-icon-button
+        matTooltip="Mark all as read"
+        aria-label="Mark all as read"
+        *ngIf="unreadMessagesCount$ | async"
+      >
+        <mat-icon>done_all</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-nav-list>
+    <ng-container *ngFor="let message of messages$ | async">
+      <a
+        mat-list-item
+        [routerLink]="message.id"
+        [class.white-bg]="!message.isRead"
+      >
+        <h2 matLine>{{ message.title }}</h2>
+        <p matLine>{{ message.body }}</p>
+        <button mat-icon-button>
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+      </a>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-nav-list>
+</div>

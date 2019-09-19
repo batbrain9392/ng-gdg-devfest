@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import {
   ThemeService,
   ServiceWorkerService,
+  NotificationService,
   WebShareService,
   OfflineService,
   DeviceService
@@ -19,13 +20,14 @@ export class NavComponent {
   readonly isDarkTheme$ = this.themeService.isDarkTheme$;
   readonly isUpdateAvailable$ = this.serviceWorkerService.isUpdateAvailable$;
   readonly isUpdating$ = this.serviceWorkerService.isUpdating$;
-  // readonly notificationCount$ = this.serviceWorkerService.notificationCount$;
+  readonly unreadMessagesCount$ = this.notificationService.unreadMessagesCount$;
   readonly isWebShareAvailable = this.webShareService.isWebShareAvailable;
   readonly isOffline$ = this.offlineService.isOffline$;
 
   constructor(
     private themeService: ThemeService,
     private serviceWorkerService: ServiceWorkerService,
+    private notificationService: NotificationService,
     private webShareService: WebShareService,
     private offlineService: OfflineService,
     private deviceService: DeviceService

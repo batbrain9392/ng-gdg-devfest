@@ -77,20 +77,20 @@
         {{ (isDarkTheme$ | async) ? 'wb_sunny' : 'nights_stay' }}
       </mat-icon>
     </button>
-    <!-- <a
+    <a
       mat-icon-button
       matTooltip="Notifications"
       aria-label="Notifications"
       routerLink="/notifications"
     >
       <mat-icon
-        [matBadge]="notificationCount$ | async"
+        [matBadge]="unreadMessagesCount$ | async"
         matBadgeColor="warn"
-        [matBadgeHidden]="!(notificationCount$ | async)"
+        [matBadgeHidden]="!(unreadMessagesCount$ | async)"
       >
         notifications
       </mat-icon>
-    </a> -->
+    </a>
   </div>
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
