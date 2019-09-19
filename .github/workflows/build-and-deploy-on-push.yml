@@ -21,7 +21,9 @@ jobs:
       #   run: ./node_modules/.bin/firebase deploy --only hosting --token=${FIREBASE_TOKEN}
       - name: Install functions dependencies
         run: cd functions && npm install
+      - name: Install firebase-tools
+        run: npm i -g firebase-tools
       - name: Deploy functions to firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: ./node_modules/.bin/firebase deploy --only functions --token=${FIREBASE_TOKEN}
+        run: firebase deploy --only functions --token=${FIREBASE_TOKEN}
