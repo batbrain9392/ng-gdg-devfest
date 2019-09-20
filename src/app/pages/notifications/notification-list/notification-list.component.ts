@@ -13,4 +13,8 @@ export class NotificationListComponent implements OnInit {
   constructor(private notificationService: NotificationService) {}
 
   ngOnInit() {}
+
+  markAllNotificationsAsRead() {
+    this.notificationService.markAllAsRead();
+  }
 }

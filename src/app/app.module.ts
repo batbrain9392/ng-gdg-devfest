@@ -25,7 +25,7 @@ import { directives } from './shared/directives';
     HttpClientModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     AngularFireFunctionsModule,
     AngularFireMessagingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

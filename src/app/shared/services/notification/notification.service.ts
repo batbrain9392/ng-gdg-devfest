@@ -9,19 +9,8 @@ import { tap, take, catchError, shareReplay, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NotificationService {
-  // private readonly notificationsRoute$ = this.router.events.pipe(
-  //   filter((event: Event) => event instanceof NavigationEnd),
-  //   filter(
-  //     (event: NavigationEnd) => event.urlAfterRedirects === '/notifications'
-  //   )
-  // );
-  private readonly reset = new Subject<void>();
-  // private readonly isReset$ = merge(
-  //   this.reset.asObservable(),
-  //   this.notificationsRoute$
-  // ).pipe(mapTo(0));
-  private readonly messagesCollection = this.afs.collection<any>('messages');
-  readonly messages$ = this.messagesCollection.snapshotChanges().pipe(
+  private readonly messageCollection = this.afs.collection<any>('messages');
+  readonly messages$ = this.messageCollection.snapshotChanges().pipe(
     map(actions =>
       actions.map(a => {
         const data = a.payload.doc.data();
@@ -55,7 +44,7 @@ export class NotificationService {
     return this.afFunctions
       .httpsCallable('subscribeToTopic')({ token })
       .pipe(
-        tap(_ => console.log('Subscribed to messages')),
+        tap(console.log),
         catchError(err => {
           console.log(err);
           return EMPTY;
@@ -64,6 +53,15 @@ export class NotificationService {
   }
 
   markAllAsRead() {
-    this.reset.next();
+    const markAllAsReadBatch = this.afs.firestore.batch();
+    // this.afs.collection<any>('messages', ref =>
+    //   ref.where('isRead', '==', false)
+    // );
+    const x = this.messageCollection.ref
+      .where('isRead', '==', false)
+      .get()
+      .then(querySnapshot =>
+        querySnapshot.forEach(doc => console.log(doc.id, ' => ', doc.data()))
+      );
   }
 }

@@ -23,8 +23,8 @@ export const sendOnFirestoreCreate = functions.firestore
     const message = snapshot.data();
     if (message) {
       const notification: admin.messaging.Notification = {
-        title: 'New Message Available!',
-        body: message.headline
+        title: message.title,
+        body: message.body
       };
       const payload: admin.messaging.Message = {
         notification,
@@ -43,6 +43,7 @@ export const sendOnFirestoreCreate = functions.firestore
         },
         topic: 'messages'
       };
+      console.log({ payload });
       return admin.messaging().send(payload);
     }
     return;

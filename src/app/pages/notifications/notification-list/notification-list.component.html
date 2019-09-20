@@ -6,6 +6,7 @@
         mat-icon-button
         matTooltip="Mark all as read"
         aria-label="Mark all as read"
+        (click)="markAllNotificationsAsRead()"
         *ngIf="unreadMessagesCount$ | async"
       >
         <mat-icon>done_all</mat-icon>
