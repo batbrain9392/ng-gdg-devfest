@@ -5,14 +5,16 @@ admin.initializeApp();
 
 export const subscribeToTopic = functions.https.onCall(
   async (data, context) => {
-    await admin.messaging().subscribeToTopic(data.token, 'messages');
+    const response = await admin.messaging().subscribeToTopic(data.token, 'messages');
+    console.log(JSON.stringify(response));
     return 'Subscribed to messages';
   }
 );
 
 export const unsubscribeFromTopic = functions.https.onCall(
   async (data, context) => {
-    await admin.messaging().unsubscribeFromTopic(data.token, 'messages');
+    const response = await admin.messaging().unsubscribeFromTopic(data.token, 'messages');
+    console.log(JSON.stringify(response));
     return 'Unsubscribed from messages';
   }
 );

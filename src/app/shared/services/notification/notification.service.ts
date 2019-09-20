@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { EMPTY, Subject } from 'rxjs';
+import { FirebaseError } from 'firebase';
+import { EMPTY } from 'rxjs';
 import { tap, take, catchError, shareReplay, map } from 'rxjs/operators';
 
 @Injectable({
@@ -20,10 +21,7 @@ export class NotificationService {
     ),
     shareReplay()
   );
-  readonly unreadMessagesCount$ = this.messages$.pipe(
-    map(messages => messages.filter(message => !message.isRead).length),
-    shareReplay()
-  );
+  private notificationsBlocked: boolean;
 
   constructor(
     private afMessaging: AngularFireMessaging,
@@ -36,32 +34,45 @@ export class NotificationService {
   }
 
   private async getPermission() {
-    const token = await this.afMessaging.requestToken.pipe(take(1)).toPromise();
-    this.sub(token).subscribe();
+    let token = await this.afMessaging.getToken
+      .pipe(
+        take(1),
+        catchError((err: FirebaseError) => {
+          this.notificationsBlocked =
+            err.code === 'messaging/notifications-blocked';
+          return this.errHandler(err);
+        })
+      )
+      .toPromise();
+    console.log(
+      token ? 'Notifications are enabled' : 'Asking notification permission'
+    );
+    if (!token && !this.notificationsBlocked) {
+      token = await this.afMessaging.requestToken
+        .pipe(
+          take(1),
+          catchError(err => this.errHandler(err))
+        )
+        .toPromise();
+      await this.sub(token);
+    }
+    console.log('Listening to incoming notifications');
+    this.afMessaging.messages.subscribe(message => console.log(message));
   }
 
   private sub(token: string) {
     return this.afFunctions
       .httpsCallable('subscribeToTopic')({ token })
       .pipe(
+        take(1),
         tap(console.log),
-        catchError(err => {
-          console.log(err);
-          return EMPTY;
-        })
-      );
+        catchError(err => this.errHandler(err))
+      )
+      .toPromise();
   }
 
-  markAllAsRead() {
-    const markAllAsReadBatch = this.afs.firestore.batch();
-    // this.afs.collection<any>('messages', ref =>
-    //   ref.where('isRead', '==', false)
-    // );
-    const x = this.messageCollection.ref
-      .where('isRead', '==', false)
-      .get()
-      .then(querySnapshot =>
-        querySnapshot.forEach(doc => console.log(doc.id, ' => ', doc.data()))
-      );
+  private errHandler(err: any) {
+    console.log(err.message);
+    return EMPTY;
   }
 }

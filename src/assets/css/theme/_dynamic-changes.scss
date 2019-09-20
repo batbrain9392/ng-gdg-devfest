@@ -5,7 +5,7 @@
 //*************//
 
 .white {
-  background-color: white !important;
+  background-color: white;
 }
 
 a:not([class*='mat-']):not([class*='fragment-icon']) {
@@ -26,7 +26,7 @@ a:not([class*='mat-']):not([class*='fragment-icon']) {
 
 .dark-theme {
   .white {
-    background: #424242 !important;
+    background: #424242;
   }
 
   a:not([class*='mat-']):not([class*='fragment-icon']) {

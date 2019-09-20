@@ -1,20 +1,20 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NotificationService } from '../../../shared/services';
+import { staricase, fade } from '../../../shared/animations';
 
 @Component({
   selector: 'app-notification-list',
   templateUrl: './notification-list.component.html',
   styleUrls: ['./notification-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [staricase, fade]
 })
-export class NotificationListComponent implements OnInit {
+export class NotificationListComponent {
+  isLoading = true;
   readonly messages$ = this.notificationService.messages$;
-  readonly unreadMessagesCount$ = this.notificationService.unreadMessagesCount$;
   constructor(private notificationService: NotificationService) {}
 
-  ngOnInit() {}
-
-  markAllNotificationsAsRead() {
-    this.notificationService.markAllAsRead();
+  onDone() {
+    this.isLoading = false;
   }
 }

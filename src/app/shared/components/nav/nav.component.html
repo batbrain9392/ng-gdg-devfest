@@ -83,13 +83,7 @@
       aria-label="Notifications"
       routerLink="/notifications"
     >
-      <mat-icon
-        [matBadge]="unreadMessagesCount$ | async"
-        matBadgeColor="warn"
-        [matBadgeHidden]="!(unreadMessagesCount$ | async)"
-      >
-        notifications
-      </mat-icon>
+      <mat-icon>notifications</mat-icon>
     </a>
   </div>
 </mat-toolbar>
